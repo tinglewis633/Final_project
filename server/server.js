@@ -1,7 +1,9 @@
 const PORT = 3002;
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 const data = [
   { name: "wergre", id: 1 },
