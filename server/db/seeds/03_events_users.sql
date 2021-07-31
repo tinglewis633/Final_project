@@ -1,0 +1,1 @@
+INSERT INTO events_users (user_id, events_id, accepted) VALUES (1,1,false);

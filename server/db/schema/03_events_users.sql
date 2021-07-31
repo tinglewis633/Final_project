@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS events_users CASCADE;
+
+CREATE TABLE events_users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  events_id INTEGER REFERENCES events(id) ON DELETE CASCADE,
+  accepted BOOLEAN
+ );
