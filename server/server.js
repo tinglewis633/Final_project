@@ -1,4 +1,3 @@
-// const PORT = 3002;
 require("dotenv").config();
 
 const express = require("express");
