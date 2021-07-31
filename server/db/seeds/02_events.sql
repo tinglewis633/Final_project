@@ -1,2 +1,2 @@
-INSERT INTO users (name, date, address, start_time, end_time, price, population, description, user_id) 
-VALUES ('party123', "1999-02-02", "123 Test Road, Toronto, Canada", "1999-02-02 16:30:00", "1999-02-02 22:00:00", 2000, 15, "come drink and have fun", 1);
+INSERT INTO events (name, date, address, start_time, end_time, price, population, description, user_id) 
+VALUES ('party123', '1999-02-02', '123 Test Road, Toronto, Canada', '1999-02-02 16:30:00', '1999-02-02 22:00:00', 2000, 15, 'come drink and have fun', 1);

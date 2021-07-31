@@ -12,5 +12,5 @@ CREATE TABLE events (
   population int NOT NULL,
   description VARCHAR(255) NOT NULL,
   --host
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
  );
