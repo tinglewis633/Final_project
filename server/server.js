@@ -16,6 +16,17 @@ app.get("/", (req, res) => {
     : res.send({ "Api Status": "OFF" });
 });
 
+// ----------- Testing route when db is not working------------------
+// const data = [
+//   { name: "wergre", id: 1 },
+//   { name: "ewrgew", id: 2 },
+//   { name: "abcwgregwed", id: 3 },
+// ];
+
+// app.get("/api/data", (req, res) => {
+//   res.json({ data: data });
+// });
+
 const apiRoutes = require("./routes/api");
 app.use("/api", apiRoutes);
 
