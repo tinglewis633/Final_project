@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 import PartyListItem from "./PartyListItem";
 
 export default function PartyList(props) {
-  for(let i = 0; i < 10; i++) {
-    return (
-      <ul>
-        <PartyListItem />
-      </ul>
-    )
+  if (props.events.events === undefined) {
+    return <h1>Loading...</h1>;
+  } else {
+    const parsedEvents = props.events.events.map((event) => (
+      <PartyListItem key={event.id} event={event} />
+    ));
+    return <section>{parsedEvents}</section>;
   }
-
-
-  return 1;
-  
 }
