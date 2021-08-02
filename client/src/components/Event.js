@@ -11,7 +11,7 @@ export default function Event(props) {
         <p style={{ color: "white" }}>Name: {name}</p>
         <p style={{ color: "white" }}>Desc: {description}</p>
         <p style={{ color: "white" }}># of Attendants: {population}</p>
-        <p style={{ color: "white" }}>Cost: $({price}/100)</p>
+        <p style={{ color: "white" }}>Cost: ${price / 100}</p>
         <p style={{ color: "white" }}>Hosted By: {host_id}</p>
       </div>
     );

@@ -10,7 +10,9 @@ export default function Profile(props) {
       <div className="card">
         <p style={{ color: "white" }}>Name: {name}</p>
         <p style={{ color: "white" }}>Email: {email}</p>
-        <p style={{ color: "white" }}>date_of_birth: {date_of_birth}</p>
+        <p style={{ color: "white" }}>
+          date_of_birth: {date_of_birth.slice(0, 10)}
+        </p>
       </div>
     );
   }
