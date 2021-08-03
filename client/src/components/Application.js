@@ -14,9 +14,9 @@ export default function Application(props) {
   const [event, setEvent] = useState({});
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:3002/api/events"),
-      axios.get("http://localhost:3002/api/user/1"),
-      axios.get("http://localhost:3002/api/event/1"),
+      axios.get("/api/events"),
+      axios.get("/api/user/1"),
+      axios.get("/api/event/1"),
     ]).then((data) => {
       setEvents((prev) => ({
         ...prev,
@@ -34,10 +34,15 @@ export default function Application(props) {
   }, []);
 
   return (
-    <main>
-      <Profile user={user} />
-      <PartyList events={events} />
-      <Event event={event} />
-    </main>
+    <div>
+      <div className="navbar">
+        <NavBar />
+      </div>
+      <main>
+        <Profile user={user} />
+        <PartyList events={events} />
+        <Event event={event} />
+      </main>
+    </div>
   );
 }
