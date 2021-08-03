@@ -2,7 +2,7 @@ const db = require('../db');
 
 
 const getAllEvents = () => {
-  return db.query('SELECT * FROM events;')
+  return db.query('SELECT events.*, username FROM events JOIN users ON host_id = users.id')
     .then((response) => {
       return response.rows;
     });

@@ -11,6 +11,7 @@ CREATE TABLE events (
   price int NOT NULL, 
   population int NOT NULL,
   description VARCHAR(255) NOT NULL,
-  --host
+  eventPrivate BOOLEAN,
+  ageRange VARCHAR(50) NOT NULL,
   host_id INTEGER REFERENCES users(id) ON DELETE CASCADE
  );
