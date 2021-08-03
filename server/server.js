@@ -2,12 +2,19 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
-
 const morgan = require("morgan");
 const cors = require("cors");
+const cookieSession = require("cookie-session");
 
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1", "key2"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.statusCode === 200
@@ -27,6 +34,8 @@ app.get("/", (req, res) => {
 // });
 
 const apiRoutes = require("./routes/api");
+const authRoutes = require("./routes/auth");
+app.use("/", authRoutes);
 app.use("/api", apiRoutes);
 
 app.listen(process.env.PORT, () =>

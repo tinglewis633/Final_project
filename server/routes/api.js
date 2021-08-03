@@ -25,7 +25,6 @@ router.get("/event/:id", (req, res) => {
   eventQuery.getEventById(req.params.id).then((response) => {
     res.json(response);
   });
-
 });
 
 //Users Route
@@ -35,5 +34,15 @@ router.get("/user/:id", (req, res) => {
   });
 });
 
+router.get("/logged_in", (req, res) => {
+  if (req.session.user_id) {
+    userQuery.getUserById(req.session.user_id).then((response) => {
+      response.logged_in = true;
+      res.json(response);
+    });
+  } else {
+    res.json({ logged_in: false });
+  }
+});
 
 module.exports = router;
