@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const customersQueries = require("../db/queries/customer-queries");
-const eventQuery = require("../db/queries/events-queries");
 const userQuery = require("../db/queries/users-queries");
 const bcrypt = require("bcrypt");
 
@@ -10,8 +8,10 @@ router.post("/login", (req, res) => {
   const Username = req.body.username;
   const Password = req.body.password;
   userQuery.findUserByUsername(Username).then((user) => {
-    if (!user) {
-      res.json("invalid credentials");
+    if (user) {
+      
+      res.json(user);
+
     } else if (bcrypt.compareSync(Password, user.password)) {
       req.session.user_id = user.id;
       res.redirect("/");
