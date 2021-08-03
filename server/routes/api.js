@@ -27,6 +27,14 @@ router.get("/event/:id", (req, res) => {
   });
 });
 
+//TODO: gets all evants for a user
+router.get("/user/events", (req, res) => {
+  eventQuery.getAllUserEvents(req.params.id).then((response) => {
+    res.json(response);
+  });
+});
+
+
 //Users Route
 router.get("/user/:id", (req, res) => {
   userQuery.getUserById(req.params.id).then((response) => {
