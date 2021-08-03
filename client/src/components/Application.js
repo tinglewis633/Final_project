@@ -9,9 +9,11 @@ import Event from "./Event";
 import "../styles/main.css";
 
 export default function Application(props) {
+
   const [events, setEvents] = useState({});
   const [user, setUser] = useState({});
   const [event, setEvent] = useState({});
+
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3002/api/events"),
@@ -35,9 +37,9 @@ export default function Application(props) {
 
   return (
     <main>
-      <Profile user={user} />
+      {/* <Profile user={user} /> */}
       <PartyList events={events} />
-      <Event event={event} />
+      {/* <Event event={event} /> */}
     </main>
   );
 }
