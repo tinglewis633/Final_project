@@ -2,12 +2,19 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
-
 const morgan = require("morgan");
 const cors = require("cors");
+const cookieSession = require("cookie-session");
 
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1", "key2"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.statusCode === 200
@@ -30,36 +37,6 @@ const apiRoutes = require("./routes/api");
 const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 app.use("/api", apiRoutes);
-
-// router.post("/logister", (req, res) => {
-//   const logUsername = req.body.username
-//   const logPassword = req.body.password;
-//   dbHelpers.findUserByUsername(logUsername)
-//     .then((user) => {
-//       if (!user) {
-//         res.json("invalid user")
-//       } else {
-//         if (bcrypt.compareSync(logPassword, user.password)) {
-//           req.session.user_id = user.id;
-//           res.redirect("/");
-//         } else {
-//           res.json("wrong password")
-//         }
-//       }
-//     })
-//     .catch((error) => res.json(error));
-
-// })
-
-// router.post("/login", (req, res) => {
-//   console.log("JHIIIIIIIIII");
-//   res.redirect("/123");
-// });
-
-// router.get("/login", (req, res) => {
-//   console.log("JHIIIIIIIIII");
-//   res.redirect("/123");
-// });
 
 app.listen(process.env.PORT, () =>
   console.log(`> Api ready @ http://localhost:${process.env.PORT}`)
