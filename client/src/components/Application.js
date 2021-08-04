@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import PartyList from "./PartyList";
@@ -70,6 +70,7 @@ export default function Application(props) {
             <Route path="/myevents">
               <MyEvents events={myEvents} />
             </Route>
+            <Route render={() => <Redirect to="/" />} />
           </Switch>
         </BrowserRouter>
       </main>
