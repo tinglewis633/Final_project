@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import PartyList from "./PartyList";
@@ -10,7 +10,7 @@ import Login from "./Login";
 import Event from "./Event";
 import "../styles/main.css";
 
-export default function Application(props) {    
+export default function Application(props) {
   const [events, setEvents] = useState({});
   const [user, setUser] = useState({});
   const [event, setEvent] = useState({});
@@ -41,26 +41,22 @@ export default function Application(props) {
   }, []);
 
   return (
-
-
     <div>
-
       <NavBar />
 
       <main>
-    <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-           <PartyList events={events} />
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <PartyList events={events} />
             </Route>
             <Route path="/login">
               <Login cookie={cookie} />
-            <Profile user={user} />       
-          </Route>
-        </Switch>
-    </BrowserRouter>
+              <Profile user={user} cookie={cookie} />
+            </Route>
+          </Switch>
+        </BrowserRouter>
       </main>
-
 
       {/* <div className="login">
         <Login cookie={cookie} />
@@ -70,7 +66,6 @@ export default function Application(props) {
         <PartyList events={events} />
         <Event event={event} />
       </main> */}
-     
     </div>
   );
 }
