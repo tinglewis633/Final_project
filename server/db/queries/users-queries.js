@@ -10,7 +10,7 @@ const getUserById = (id) => {
 
 const findUserByUsername = function (user) {
   const stringQuery = `
-  SELECT id, name, password
+  SELECT *
   FROM users
   WHERE name = $1;
   `;
