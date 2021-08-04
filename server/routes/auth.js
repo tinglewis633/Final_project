@@ -9,7 +9,7 @@ router.post("/login", (req, res) => {
   const Password = req.body.password;
   userQuery.findUserByUsername(Username).then((user) => {
     if (!user) {
-      res.json("invalid credentials");
+      res.json("User not found");
     } else if (bcrypt.compareSync(Password, user.password)) {
       req.session.user_id = user.id;
       res.redirect("/");

@@ -49,8 +49,8 @@ router.post("/events", (req, res) => {
       ageRange,
       host_id
     )
-    .then((response) => {
-      res.json(response);
+    .then(() => {
+      res.redirect("/");
     });
 });
 
