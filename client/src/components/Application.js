@@ -4,10 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import NavBar from "./NavBar";
 import PartyList from "./PartyList";
-import PartyListItem from "./PartyListItem";
 import Profile from "./Profile";
 import Login from "./Login";
-import Event from "./Event";
 import "../styles/main.css";
 
 export default function Application(props) {    
@@ -22,7 +20,7 @@ export default function Application(props) {
       axios.get("/api/logged_in"),
     ]).then((data) => {
       setEvents((prev) => ({
-        ...prev,
+        ...prev,  
         events: data[0].data,
       }));
       setUser((prev) => ({

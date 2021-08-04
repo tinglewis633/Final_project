@@ -28,8 +28,8 @@ router.get("/event/:id", (req, res) => {
 });
 
 //TODO: gets all evants for a user
-router.get("/user/events", (req, res) => {
-  eventQuery.getAllUserEvents(req.params.id).then((response) => {
+router.get("/events/user/:id", (req, res) => {
+  eventQuery.getAllUserEvents(req.session.user_id).then((response) => {
     res.json(response);
   });
 });

@@ -8,9 +8,9 @@ router.post("/login", (req, res) => {
   const Username = req.body.username;
   const Password = req.body.password;
   userQuery.findUserByUsername(Username).then((user) => {
-    if (user) {
+    if (!user) {
       
-      res.json(user);
+      res.send("Cant find user!");
 
     } else if (bcrypt.compareSync(Password, user.password)) {
       req.session.user_id = user.id;

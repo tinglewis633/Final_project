@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import PartyListItem from "./PartyListItem";
 
 export default function PartyList(props) {
