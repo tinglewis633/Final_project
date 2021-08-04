@@ -46,7 +46,7 @@ export default function Application(props) {
         <Login cookie={cookie} />
       </div>
       <main>
-        <Profile user={user} />
+        <Profile user={user} cookie={cookie} />
         <PartyList events={events} />
         <Event event={event} />
       </main>
