@@ -17,12 +17,6 @@ export default function Profile(props) {
         <p style={{ color: "white" }}>Name: {name}</p>
         <p style={{ color: "white" }}>Email: {email}</p>
         <p style={{ color: "white" }}>date_of_birth: {date_of_birth}</p>
-
-        <form method="POST" action="/event">
-          <button type="submit" className="input-btn">
-            Add Event
-          </button>
-        </form>
       </div>
     );
   } else {

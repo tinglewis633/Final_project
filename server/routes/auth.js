@@ -8,10 +8,8 @@ router.post("/login", (req, res) => {
   const Username = req.body.username;
   const Password = req.body.password;
   userQuery.findUserByUsername(Username).then((user) => {
-    if (user) {
-      
-      res.json(user);
-
+    if (!user) {
+      res.json("invalid credentials");
     } else if (bcrypt.compareSync(Password, user.password)) {
       req.session.user_id = user.id;
       res.redirect("/");
@@ -47,24 +45,5 @@ router.post("/logout", (req, res) => {
   req.session = null;
   res.redirect("/");
 });
-// router.post("/logister", (req, res) => {
-//   const logUsername = req.body.username
-//   const logPassword = req.body.password;
-//   dbHelpers.findUserByUsername(logUsername)
-//     .then((user) => {
-//       if (!user) {
-//         res.json("invalid user")
-//       } else {
-//         if (bcrypt.compareSync(logPassword, user.password)) {
-//           req.session.user_id = user.id;
-//           res.redirect("/");
-//         } else {
-//           res.json("wrong password")
-//         }
-//       }
-//     })
-//     .catch((error) => res.json(error));
-
-// })
 
 module.exports = router;
