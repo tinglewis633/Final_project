@@ -9,8 +9,6 @@ import "../styles/nav.css";
 export default function NavBar(props) {
   const logged_in = props.cookie?.cookie;
 
-  
-
   if (logged_in) {
     return (
       <div id="menuToggle">
@@ -46,6 +44,6 @@ export default function NavBar(props) {
       </div>
     );
   } else {
-    return <h1>Please login first</h1>;
+    return <h1></h1>;
   }
 }

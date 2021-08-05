@@ -1,11 +1,22 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function Event(props) {
-  if (props.event.event === undefined) {
+  const params = useParams();
+  const event_id = params.eventId;
+
+  if (props.events.events === undefined) {
     return <h1>Loading...</h1>;
   } else {
-    const { name, host_id, description, population, price } = props.event.event;
+    const {
+      name,
+      description,
+      population,
+      price,
+      host_id,
+    } = props.events.events[event_id - 1];
+
     return (
       <div className="card">
         <p style={{ color: "white" }}>Name: {name}</p>

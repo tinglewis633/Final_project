@@ -1,11 +1,20 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { Link, Switch, Route } from "react-router-dom";
+import { useHistory } from "react-router";
 
 import "../styles/partyCard.css";
 
 export default function PartyListItem(props) {
-  
+  const history = useHistory();
+
+  const eventDetail = (e) => {
+    e.preventDefault();
+    history.push(`/event/${id}`);
+  };
+
   const {
+    id,
     name,
     price,
     username,
@@ -15,8 +24,8 @@ export default function PartyListItem(props) {
   } = props.event;
 
   return (
-    <div className="card">
-
+    <div onClick={eventDetail} className="card">
+      
       {eventprivate && <div className="sold-out">🔒</div>}
       {!eventprivate && <div className="sold-out">🔓</div>}
 
@@ -37,6 +46,10 @@ export default function PartyListItem(props) {
         <p style={{ color: "white" }}>Tags: #yuuheardd</p>
         <p style={{ color: "white" }}>@{username}</p>
       </div>
+
+      <Switch>
+        <Route path="/events/:eventId" component={Event} />
+      </Switch>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import PartyListItem from "./PartyListItem";
+import {Link, Switch, Route} from 'react-router-dom';
+import Event from "./Event";
 
 export default function PartyList(props) {
  
@@ -10,6 +12,9 @@ export default function PartyList(props) {
     const parsedEvents = props.events.events.map((event) => (
       <PartyListItem key={event.id} event={event} />
     ));
+
+
+   
     return <section>{parsedEvents}</section>;
   }
 }

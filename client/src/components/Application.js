@@ -21,7 +21,6 @@ export default function Application(props) {
   const [myEvents, setMyEvents] = useState({});
   const [cookie, setCookie] = useState();
 
-
   // fetching data and set it to the state
   useEffect(() => {
     Promise.all([
@@ -53,7 +52,6 @@ export default function Application(props) {
     });
   }, []);
 
-
   return (
     <div>
       <NavBar cookie={cookie} />
@@ -67,6 +65,16 @@ export default function Application(props) {
               cookie={cookie}
               exact
               path="/"
+            >
+              {/* <PartyList events={events} cookie={cookie} /> */}
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              events={events}
+              component={Event}
+              cookie={cookie}
+              exact
+              path="/event/:eventId"
             >
               {/* <PartyList events={events} cookie={cookie} /> */}
             </ProtectedRoute>
@@ -96,6 +104,7 @@ export default function Application(props) {
             >
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>
+
             <Route path="/login">
               <Login cookie={cookie} />
             </Route>
