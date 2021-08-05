@@ -46,4 +46,11 @@ router.post("/logout", (req, res) => {
   res.redirect("/");
 });
 
+// redirect user to / if logged in
+router.get("/login", (req, res) => {
+  if (req.session.user_id) {
+    res.redirect("/");
+  }
+});
+
 module.exports = router;

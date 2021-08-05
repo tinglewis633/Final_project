@@ -68,14 +68,6 @@ export default function Login(props) {
       </div>
     );
   } else {
-    return (
-      <div>
-        <form method="POST" className="logout-form" action="/logout">
-          <button type="submit" className="input-btn">
-            Logout
-          </button>
-        </form>
-      </div>
-    );
+    return <div>You are logged in</div>;
   }
 }

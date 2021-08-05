@@ -52,16 +52,15 @@ export default function Application(props) {
 
   return (
     <div>
-      <NavBar />
+      <NavBar cookie={cookie} />
 
       <main>
         <BrowserRouter>
           <Switch>
             <Route exact path="/">
-              <PartyList events={events} />
+              <PartyList events={events} cookie={cookie} />
             </Route>
-            <Route path="/login">
-              <Login cookie={cookie} />
+            <Route path="/profile">
               <Profile user={user} cookie={cookie} />
             </Route>
             <Route path="/add-event">
@@ -69,6 +68,9 @@ export default function Application(props) {
             </Route>
             <Route path="/myevents">
               <MyEvents events={myEvents} />
+            </Route>
+            <Route path="/login">
+              <Login cookie={cookie} />
             </Route>
             <Route render={() => <Redirect to="/" />} />
           </Switch>
