@@ -1,7 +1,16 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
-  const logged_in = props.cookie.cookie;
+  const logged_in = props.cookie?.cookie;
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (logged_in) {
+      history.push("/");
+    }
+  }, [logged_in]);
 
   if (logged_in === undefined || logged_in === false) {
     return (

@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 
-
 //Add event form
 export default function Addevent(props) {
+  
+ 
+
   return (
     <form method="POST" className="add-event-form" action="/api/events">
       <p>Event name:</p>

@@ -4,7 +4,7 @@ import axios from "axios";
 import "../styles/partyCard.css";
 
 export default function PartyListItem(props) {
-  console.log("event", props.event.eventprivate);
+  
   const {
     name,
     price,

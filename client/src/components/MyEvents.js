@@ -3,6 +3,8 @@ import axios from "axios";
 import PartyListItem from "./PartyListItem";
 
 export default function PartyList(props) {
+ 
+
   if (props.events.myEvents === undefined) {
     return <h1>Loading1...</h1>;
   } else {

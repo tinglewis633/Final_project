@@ -48,7 +48,7 @@ router.post("/logout", (req, res) => {
 
 // redirect user to / if logged in
 router.get("/login", (req, res) => {
-  if (req.session.user_id) {
+  if (!req.session.user_id) {
     res.redirect("/");
   }
 });

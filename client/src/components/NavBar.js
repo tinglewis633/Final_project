@@ -7,7 +7,9 @@ import PartyList from "./PartyList";
 import "../styles/nav.css";
 
 export default function NavBar(props) {
-  const logged_in = props.cookie.cookie;
+  const logged_in = props.cookie?.cookie;
+
+  
 
   if (logged_in) {
     return (
