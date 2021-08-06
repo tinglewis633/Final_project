@@ -1,7 +1,19 @@
 import React from "react";
 
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
+
 export default function Login(props) {
-  const logged_in = props.cookie.cookie;
+  const logged_in = props.cookie?.cookie;
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (logged_in) {
+      history.push("/");
+    }
+  }, [logged_in]);
 
   if (logged_in === undefined || logged_in === false) {
     return (
@@ -68,14 +80,6 @@ export default function Login(props) {
       </div>
     );
   } else {
-    return (
-      <div>
-        <form method="POST" className="logout-form" action="/logout">
-          <button type="submit" className="input-btn">
-            Logout
-          </button>
-        </form>
-      </div>
-    );
+    return <div>You are logged in</div>;
   }
 }

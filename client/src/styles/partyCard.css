@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.card :hover {
+  cursor: pointer;
+}
+
 .sold-out {
   color: white;
   position: absolute;
@@ -25,26 +29,24 @@
   right: 0px;
 }
 
-.card-header{
+.card-header {
   display: flex;
   flex-direction: row;
 }
 
-.card p{
+.card p {
   margin: 0px;
 }
 
-.card-footer{
-  display: flex; 
+.card-footer {
+  display: flex;
 
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; 
-
+  align-items: center;
 }
 
-.card-footer p{
+.card-footer p {
   height: 20px;
   margin: 0px;
-
 }
