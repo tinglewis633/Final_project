@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import RequestListItem from "./RequestListItem";
 export default function Activity(props) {
 const [requests, setRequests]= useState({});
 
@@ -10,33 +10,19 @@ useEffect(()=> {
       ...prev,  
       requests: data.data,
     }));
+
   })
 
-}, [])
+}, [])  
 
-  // const params = useParams();
-  // const event_id = params.eventId;
-  // const requestEvent = (e) => {
-  //   e.preventDefault();
-  //   axios.post(`/api/event/${event_id}/request`);
-  // };
-  // console.log(props.events.events[event_id - 1]);
-  // if (props.events.events === undefined) {
-  //   return <h1>Loading...</h1>;
-  // } else {
-  //   const {
-  //     name,
-  //     description,
-  //     population,
-  //     price,
-  //     host_id,
-  //     eventprivate,
-  //   } = props.events.events[event_id - 1];
-
-    return (
-      <div className="card">
-        
-      </div>
-    );
+  if (requests.requests === undefined) {
+    return <h1>Loading...</h1>;
+  } else {
+    const parsedRequests = requests.requests.map((request) => (
+      <RequestListItem key={request.id} request={request} />
+    ));
+   
+    return <section>{parsedRequests}</section>;
+  }
   
 }

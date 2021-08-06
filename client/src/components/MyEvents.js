@@ -11,6 +11,9 @@ export default function PartyList(props) {
     const parsedEvents = props.events.myEvents.map((event) => (
       <PartyListItem key={event.id} event={event} />
     ));
-    return <section>{parsedEvents}</section>;
+    return <section>
+      My Events: {parsedEvents}
+      Accepted Events: 
+    </section>;
   }
 }

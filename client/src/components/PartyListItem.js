@@ -15,9 +15,9 @@ export default function PartyListItem(props) {
 
   const {
     id,
-    name,
+    event_name,
     price,
-    username,
+    name,
     eventprivate,
     agerange,
     description,
@@ -29,7 +29,7 @@ export default function PartyListItem(props) {
       {!eventprivate && <div className="sold-out">🔓</div>}
 
       <div className="card-header">
-        <p style={{ color: "white" }}>Name: {name}</p>
+        <p style={{ color: "white" }}>Name: {event_name}</p>
         <p style={{ color: "white" }}>Price: ${price}</p>
       </div>
 
@@ -43,7 +43,7 @@ export default function PartyListItem(props) {
       <div className="card-footer">
         <p style={{ color: "white" }}>Distance: 2.8km</p>
         <p style={{ color: "white" }}>Tags: #yuuheardd</p>
-        <p style={{ color: "white" }}>@{username}</p>
+        <p style={{ color: "white" }}>@{name}</p>
       </div>
 
       <Switch>

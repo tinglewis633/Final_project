@@ -9,7 +9,6 @@ export default function Event(props) {
     e.preventDefault();
     axios.post(`/api/event/${event_id}/request`);
   };
-  console.log(props.events.events[event_id - 1]);
   if (props.events.events === undefined) {
     return <h1>Loading...</h1>;
   } else {
