@@ -1,9 +1,6 @@
-import React from "react";
-
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
 
 export default function Event(props) {
   const params = useParams();

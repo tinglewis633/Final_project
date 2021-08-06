@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useEffect } from "react";
 import axios from "axios";
 import { Link, Switch, Route } from "react-router-dom";
@@ -26,7 +25,6 @@ export default function PartyListItem(props) {
 
   return (
     <div onClick={eventDetail} className="card">
-      
       {eventprivate && <div className="sold-out">🔒</div>}
       {!eventprivate && <div className="sold-out">🔓</div>}
 
