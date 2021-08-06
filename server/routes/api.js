@@ -11,6 +11,13 @@ router.get("/customers", (req, res) => {
   });
 });
 
+router.get("/test", (req, res) => {
+  eventQuery.getAllTest().then((response) => {
+    res.json(response);
+  });
+});
+
+
 //Events Route
 
 //get all events from DB

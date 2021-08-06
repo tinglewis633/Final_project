@@ -6,6 +6,12 @@ const getAllEvents = () => {
   });
 };
 
+const getAllTest = () => {
+  return db.query("SELECT * FROM events_users;").then((response) => {
+    return response.rows;
+  });
+};
+
 const getEventById = (id) => {
   return db
     .query("SELECT * FROM events WHERE id = $1", [id])
@@ -57,7 +63,7 @@ const getAllUserEvents = (id) => {
 };
 
 const addEventRequest = function (user_id, events_id, accepted) {
-  const stringQuery = ` INSERT INTO events (user_id, events_id, accepted) 
+  const stringQuery = ` INSERT INTO events_users (user_id, events_id, accepted) 
 VALUES($1, $2, $3);
 
   `;
@@ -72,4 +78,5 @@ module.exports = {
   getAllUserEvents,
   addEvent,
   addEventRequest,
+  getAllTest,
 };
