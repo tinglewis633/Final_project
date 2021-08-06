@@ -5,13 +5,13 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import PartyList from "./PartyList";
-import PartyListItem from "./PartyListItem";
 import Profile from "./Profile";
 import Login from "./Login";
 import Event from "./Event";
 import Addevent from "./Addevent";
 import MyEvents from "./MyEvents";
 import ProtectedRoute from "./Protectedroute";
+
 import "../styles/main.css";
 
 export default function Application(props) {
@@ -30,7 +30,7 @@ export default function Application(props) {
       axios.get("/api/events/user"),
     ]).then((data) => {
       setEvents((prev) => ({
-        ...prev,
+        ...prev,  
         events: data[0].data,
       }));
       setUser((prev) => ({

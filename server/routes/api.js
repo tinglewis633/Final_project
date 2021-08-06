@@ -61,6 +61,7 @@ router.get("/event/:id", (req, res) => {
   });
 });
 
+
 //gets all events for a user
 router.get("/events/user", (req, res) => {
   eventQuery.getAllUserEvents(req.session.user_id).then((response) => {

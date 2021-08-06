@@ -14,6 +14,14 @@ const getEventById = (id) => {
     });
 };
 
+//TO DO: Query for all events for a user
+const getAllUserEvents = (id) => {
+  return db.query('SELECT * FROM events JOIN users ON host_id = users.id WHERE host_id = $1', [id])
+    .then((response) => {
+      return response.rows;
+    })
+}
+
 const addEvent = function (
   name,
   date,
