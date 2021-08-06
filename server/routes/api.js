@@ -61,7 +61,6 @@ router.get("/event/:id", (req, res) => {
   });
 });
 
-
 //gets all events for a user
 router.get("/events/user", (req, res) => {
   eventQuery.getAllUserEvents(req.session.user_id).then((response) => {
@@ -86,6 +85,12 @@ router.get("/logged_in", (req, res) => {
   } else {
     res.json({ logged_in: false });
   }
+});
+
+router.post("/event/:id/request", (req, res) => {
+  console.log(req.session.user_id);
+  console.log(req.params.id);
+  eventQuery.addEventRequest(req.session.user_id, req.params.id, false);
 });
 
 module.exports = router;

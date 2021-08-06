@@ -29,7 +29,6 @@ const addEvent = function (
 ) {
   const stringQuery = ` INSERT INTO events (name, date, address, start_time, end_time, price, population, description, eventPrivate, ageRange, host_id) 
 VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
-
   `;
   return db
     .query(stringQuery, [
@@ -57,4 +56,20 @@ const getAllUserEvents = (id) => {
     });
 };
 
-module.exports = { getAllEvents, getEventById, getAllUserEvents, addEvent };
+const addEventRequest = function (user_id, events_id, accepted) {
+  const stringQuery = ` INSERT INTO events (user_id, events_id, accepted) 
+VALUES($1, $2, $3);
+
+  `;
+  return db
+    .query(stringQuery, [user_id, events_id, accepted])
+    .then((response) => response);
+};
+
+module.exports = {
+  getAllEvents,
+  getEventById,
+  getAllUserEvents,
+  addEvent,
+  addEventRequest,
+};
