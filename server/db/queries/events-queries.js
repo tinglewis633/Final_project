@@ -53,7 +53,7 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
     .then((response) => response);
 };
 
-//TO DO: Query for all events for a user
+//Query for all events for a user
 const getAllUserEvents = (id) => {
   return db
     .query("SELECT * FROM events WHERE host_id = $1", [id])
@@ -72,6 +72,14 @@ VALUES($1, $2, $3);
     .then((response) => response);
 };
 
+const getAllRequestsForHost = (host_id) => {
+  return db
+    .query("SELECT * FROM events_users JOIN events ON events_id = events.id JOIN users ON user_id = users.id WHERE host_id = $1", [host_id])
+    .then((response) => {
+      return response.rows;
+    });
+};
+
 module.exports = {
   getAllEvents,
   getEventById,
@@ -79,4 +87,5 @@ module.exports = {
   addEvent,
   addEventRequest,
   getAllTest,
+  getAllRequestsForHost
 };

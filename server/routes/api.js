@@ -17,6 +17,11 @@ router.get("/test", (req, res) => {
   });
 });
 
+router.get("/requested", (req, res) => {
+  eventQuery.getAllRequestsForHost(req.session.user_id).then((response) => {
+    res.json(response);
+  });
+});
 
 //Events Route
 

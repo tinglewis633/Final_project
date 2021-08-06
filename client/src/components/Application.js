@@ -10,6 +10,7 @@ import Login from "./Login";
 import Event from "./Event";
 import Addevent from "./Addevent";
 import MyEvents from "./MyEvents";
+import Activity from "./Activity";
 import ProtectedRoute from "./Protectedroute";
 
 import "../styles/main.css";
@@ -101,6 +102,15 @@ export default function Application(props) {
               events={myEvents}
               component={MyEvents}
               path="/myevents"
+            >
+              {/* <MyEvents cookie={cookie} events={myEvents} /> */}
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              cookie={cookie}
+              events={myEvents}
+              component={Activity}
+              path="/activity"
             >
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>

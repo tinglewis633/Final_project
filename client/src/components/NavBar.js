@@ -23,7 +23,7 @@ export default function NavBar(props) {
           <a href="/myevents">
             <li>My Events</li>
           </a>
-          <a href="#">
+          <a href="/activity">
             <li>Activity</li>
           </a>
           <a

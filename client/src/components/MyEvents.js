@@ -6,7 +6,7 @@ export default function PartyList(props) {
  
 
   if (props.events.myEvents === undefined) {
-    return <h1>Loading1...</h1>;
+    return <h1>Loading...</h1>;
   } else {
     const parsedEvents = props.events.myEvents.map((event) => (
       <PartyListItem key={event.id} event={event} />
