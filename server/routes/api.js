@@ -18,9 +18,7 @@ router.get("/test", (req, res) => {
 });
 
 router.get("/requested", (req, res) => {
-
   eventQuery.getAllRequestsForHost(req.session.user_id).then((response) => {
-
     // if (req.session.user_id !== response[0].host_id) {
     //   return res.json({"are you the owner? ": "Nahh"})
     // }
@@ -104,19 +102,20 @@ router.get("/logged_in", (req, res) => {
   }
 });
 
+//Add an event request to the database
 router.post("/event/:id/request", (req, res) => {
   eventQuery.addEventRequest(req.session.user_id, req.params.id, false);
 });
 
+//for host accepting an event from other user
 router.post("/requested/:id", (req, res) => {
-
-  console.log("HIHIHHIHI", req.params.id)
-
-  eventQuery.acceptRequest(req.params.id)
-    .then((r) => console.log(r))
+  eventQuery.acceptRequest(req.params.id).then((r) => r);
 });
 
-
-
+//for host declining an event from other user
+router.post("/declined/:id", (req, res) => {
+  console.log("ROUTEHIT")
+  eventQuery.declineRequest(req.params.id).then((r) => r);
+});
 
 module.exports = router;

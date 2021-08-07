@@ -74,25 +74,31 @@ VALUES($1, $2, $3);
 
 const getAllRequestsForHost = (host_id) => {
   return db
-    .query("SELECT events_users.*, event_name, host_id, accepted, name FROM events_users JOIN events ON events_id = events.id JOIN users ON user_id = users.id WHERE host_id = $1;", [host_id])
+    .query(
+      "SELECT events_users.*, event_name, host_id, accepted, name FROM events_users JOIN events ON events_id = events.id JOIN users ON user_id = users.id WHERE host_id = $1;",
+      [host_id]
+    )
     .then((response) => {
       return response.rows;
     });
 };
 
-const acceptRequest= function (id) {
+const acceptRequest = function (id) {
   const stringQuery = ` UPDATE events_users
   SET accepted = true
   WHERE id = $1;
-  `
-  return db
-    .query(stringQuery, [id])
-    .then((response) => response);
+  `;
+  return db.query(stringQuery, [id]).then((response) => response);
 };
-// UPDATE courses
-// SET published_date = '2020-08-01' 
-// WHERE course_id = 3;
 
+const declineRequest = function (id) {
+  console.log("DECLINEREQUEST");
+  const stringQuery = `    
+  DELETE FROM events_users
+  WHERE id = $1;
+  `;
+  return db.query(stringQuery, [id]).then((response) => response);
+};
 module.exports = {
   getAllEvents,
   getEventById,
@@ -101,5 +107,6 @@ module.exports = {
   addEventRequest,
   getAllTest,
   getAllRequestsForHost,
-  acceptRequest
+  acceptRequest,
+  declineRequest,
 };

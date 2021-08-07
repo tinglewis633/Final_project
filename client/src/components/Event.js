@@ -9,11 +9,12 @@ export default function Event(props) {
     e.preventDefault();
     axios.post(`/api/event/${event_id}/request`);
   };
+
   if (props.events.events === undefined) {
     return <h1>Loading...</h1>;
   } else {
     const {
-      name,
+      event_name,
       description,
       population,
       price,
@@ -23,7 +24,7 @@ export default function Event(props) {
 
     return (
       <div className="card">
-        <p style={{ color: "white" }}>Name: {name}</p>
+        <p style={{ color: "white" }}>Name: {event_name}</p>
         <p style={{ color: "white" }}>Desc: {description}</p>
         <p style={{ color: "white" }}># of Attendants: {population}</p>
         <p style={{ color: "white" }}>Cost: ${price / 100}</p>
