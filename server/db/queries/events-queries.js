@@ -1,7 +1,7 @@
 const db = require("../db");
 
 const getAllEvents = () => {
-  return db.query("SELECT * FROM events;").then((response) => {
+  return db.query("SELECT events.*, name FROM events JOIN users ON host_id = users.id;").then((response) => {
     return response.rows;
   });
 };
@@ -54,7 +54,7 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
 };
 
 //Query for all events for a user
-const getAllUserEvents = (id) => {
+const getAllUserOwnedEvents = (id) => {
   return db
     .query("SELECT * FROM events WHERE host_id = $1", [id])
     .then((response) => {
@@ -83,7 +83,15 @@ const getAllRequestsForHost = (host_id) => {
     });
 };
 
-const acceptRequest = function (id) {
+
+const getAllUserAcceptedEvents = (id) => {
+  return db.query('SELECT events_users.*, events.*, host_id, accepted, name FROM events_users JOIN events ON events_id = events.id JOIN users ON user_id = users.id WHERE user_id = $1 AND accepted = true;', [id])
+    .then((response) => {
+      return response.rows;
+  })
+}
+
+const acceptRequest= function (id) {
   const stringQuery = ` UPDATE events_users
   SET accepted = true
   WHERE id = $1;
@@ -102,11 +110,12 @@ const declineRequest = function (id) {
 module.exports = {
   getAllEvents,
   getEventById,
-  getAllUserEvents,
+  getAllUserOwnedEvents,
   addEvent,
   addEventRequest,
   getAllTest,
   getAllRequestsForHost,
   acceptRequest,
   declineRequest,
+  getAllUserAcceptedEvents
 };

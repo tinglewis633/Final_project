@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import RequestListItem from "./RequestListItem";
 export default function Activity(props) {
+
 const [requests, setRequests]= useState({});
 
 useEffect(()=> {
@@ -10,10 +11,9 @@ useEffect(()=> {
       ...prev,  
       requests: data.data,
     }));
-
   })
 
-}, [])  
+}, [requests])  
 
   if (requests.requests === undefined) {
     return <h1>Loading...</h1>;

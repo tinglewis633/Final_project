@@ -25,15 +25,14 @@ export default function PartyListItem(props) {
 
   return (
     <div onClick={eventDetail} className="card">
+
       {eventprivate && <div className="sold-out">🔒</div>}
       {!eventprivate && <div className="sold-out">🔓</div>}
 
       <div className="card-header">
         <p style={{ color: "white" }}>Name: {event_name}</p>
-        <p style={{ color: "white" }}>Price: ${price}</p>
+        <p style={{ color: "white" }}><br/>Price: ${price}</p>
       </div>
-
-      <p style={{ color: "white" }}>access: 123{props.event.eventprivate}</p>
 
       <div>
         <p style={{ color: "white" }}>Description: {description}</p>
@@ -43,7 +42,7 @@ export default function PartyListItem(props) {
       <div className="card-footer">
         <p style={{ color: "white" }}>Distance: 2.8km</p>
         <p style={{ color: "white" }}>Tags: #yuuheardd</p>
-        <p style={{ color: "white" }}>@{name}</p>
+        <p style={{ color: "white" }}>Host: @{name}</p>
       </div>
 
       <Switch>

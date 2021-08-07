@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const customersQueries = require("../db/queries/customer-queries");
@@ -78,7 +79,7 @@ router.get("/event/:id", (req, res) => {
 
 //gets all events for a user
 router.get("/events/user", (req, res) => {
-  eventQuery.getAllUserEvents(req.session.user_id).then((response) => {
+  eventQuery.getAllUserOwnedEvents(req.session.user_id).then((response) => {
     res.json(response);
   });
 });
@@ -107,7 +108,10 @@ router.post("/event/:id/request", (req, res) => {
   eventQuery.addEventRequest(req.session.user_id, req.params.id, false);
 });
 
-//for host accepting an event from other user
+router.post("/event/:id/join", (req, res) => {
+  eventQuery.addEventRequest(req.session.user_id, req.params.id, true);
+});
+
 router.post("/requested/:id", (req, res) => {
   eventQuery.acceptRequest(req.params.id).then((r) => r);
 });
@@ -117,5 +121,13 @@ router.post("/declined/:id", (req, res) => {
   console.log("ROUTEHIT")
   eventQuery.declineRequest(req.params.id).then((r) => r);
 });
+router.get("/events/user/accepted", (req, res) => {
+  eventQuery.getAllUserAcceptedEvents(req.session.user_id)
+    .then((response) => {
+      res.json(response);
+  })
+});
+
+
 
 module.exports = router;

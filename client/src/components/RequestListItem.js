@@ -12,7 +12,14 @@ export default function RequestListItem(props) {
     axios.post(`/api/declined/${id}`);
   };
 
-  const { event_name, name, id, accepted } = props.request;
+  const {
+    event_name,
+    name,
+    id,
+    accepted
+  } = props.request;
+
+  
 
   return (
     <div>

@@ -5,10 +5,18 @@ import { useParams } from "react-router-dom";
 export default function Event(props) {
   const params = useParams();
   const event_id = params.eventId;
+
   const requestEvent = (e) => {
     e.preventDefault();
     axios.post(`/api/event/${event_id}/request`);
   };
+
+  const joinEvent = (e) => {
+    e.preventDefault();
+    axios.post(`/api/event/${event_id}/join`);
+  };
+
+
 
   if (props.events.events === undefined) {
     return <h1>Loading...</h1>;
@@ -18,7 +26,7 @@ export default function Event(props) {
       description,
       population,
       price,
-      host_id,
+      name,
       eventprivate,
     } = props.events.events[event_id - 1];
 
@@ -27,10 +35,10 @@ export default function Event(props) {
         <p style={{ color: "white" }}>Name: {event_name}</p>
         <p style={{ color: "white" }}>Desc: {description}</p>
         <p style={{ color: "white" }}># of Attendants: {population}</p>
-        <p style={{ color: "white" }}>Cost: ${price / 100}</p>
-        <p style={{ color: "white" }}>Hosted By: {host_id}</p>
+        <p style={{ color: "white" }}>Cost: ${price}</p>
+        <p style={{ color: "white" }}>Hosted By: {name}</p>
         {eventprivate && <button onClick={requestEvent}>Request</button>}
-        {!eventprivate && <button>Join</button>}
+        {!eventprivate && <button onClick={joinEvent}>Join</button>}
       </div>
     );
   }
