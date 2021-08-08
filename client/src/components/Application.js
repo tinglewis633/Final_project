@@ -118,7 +118,11 @@ export default function Application(props) {
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>
 
-            <ProtectedRoute component={Editevent} path="/editevent/:id">
+            <ProtectedRoute
+              component={Editevent}
+              events={events}
+              path="/editevent/:id"
+            >
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>
 

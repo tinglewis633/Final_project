@@ -45,11 +45,7 @@ export default function Addevent(props) {
       ></input>
 
       <p>age range: </p>
-      <input
-        required
-        name="agerange"
-        placeholder="enter the ange range"
-      ></input>
+      <input required name="agerange" placeholder="enter the age range"></input>
 
       <button type="submit" className="input-btn">
         Add Event
