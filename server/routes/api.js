@@ -70,6 +70,41 @@ router.post("/events", (req, res) => {
     });
 });
 
+//Edit an event
+router.post("/events/:id", (req, res) => {
+  const name = req.body.name;
+  const date = req.body.date;
+  const address = req.body.address;
+  const start_time = req.body.start_time;
+  const end_time = req.body.end_time;
+  const price = req.body.price;
+  const population = 1;
+  const description = req.body.description;
+  const eventPrivate = req.body.eventPrivate;
+  const ageRange = req.body.agerange;
+  const host_id = req.session.user_id;
+  const event_id = req.params.id;
+  //Lets a user add an event
+  eventQuery
+    .editEvent(
+      name,
+      date,
+      address,
+      start_time,
+      end_time,
+      price,
+      population,
+      description,
+      eventPrivate,
+      ageRange,
+      host_id,
+      event_id
+    )
+    .then(() => {
+      res.redirect("/myevents");
+    });
+});
+
 //gets an event by id
 router.get("/event/:id", (req, res) => {
   eventQuery.getEventById(req.params.id).then((response) => {
@@ -118,16 +153,13 @@ router.post("/requested/:id", (req, res) => {
 
 //for host declining an event from other user
 router.post("/declined/:id", (req, res) => {
-  console.log("ROUTEHIT")
+  console.log("ROUTEHIT");
   eventQuery.declineRequest(req.params.id).then((r) => r);
 });
 router.get("/events/user/accepted", (req, res) => {
-  eventQuery.getAllUserAcceptedEvents(req.session.user_id)
-    .then((response) => {
-      res.json(response);
-  })
+  eventQuery.getAllUserAcceptedEvents(req.session.user_id).then((response) => {
+    res.json(response);
+  });
 });
-
-
 
 module.exports = router;

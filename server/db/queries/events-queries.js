@@ -1,9 +1,13 @@
 const db = require("../db");
 
 const getAllEvents = () => {
-  return db.query("SELECT events.*, name FROM events JOIN users ON host_id = users.id;").then((response) => {
-    return response.rows;
-  });
+  return db
+    .query(
+      "SELECT events.*, name FROM events JOIN users ON host_id = users.id;"
+    )
+    .then((response) => {
+      return response.rows;
+    });
 };
 
 const getAllTest = () => {
@@ -53,6 +57,52 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
     .then((response) => response);
 };
 
+const editEvent = function (
+  name,
+  date,
+  address,
+  start_time,
+  end_time,
+  price,
+  population,
+  description,
+  eventPrivate,
+  ageRange,
+  host_id,
+  event_id
+) {
+  const stringQuery = ` UPDATE events
+  SET event_name = $1,
+   date = $2,
+   address = $3,
+   start_time = $4,
+   end_time = $5,
+   price = $6,
+   population = $7,
+   description = $8,
+   eventPrivate = $9,
+   ageRange = $10,
+   host_id = $11
+  WHERE id = $12;
+  `;
+  return db
+    .query(stringQuery, [
+      name,
+      date,
+      address,
+      start_time,
+      end_time, 
+      price,
+      population,
+      description,
+      eventPrivate,
+      ageRange,
+      host_id,
+      event_id,
+    ])
+    .then((response) => response);
+};
+
 //Query for all events for a user
 const getAllUserOwnedEvents = (id) => {
   return db
@@ -83,15 +133,18 @@ const getAllRequestsForHost = (host_id) => {
     });
 };
 
-
 const getAllUserAcceptedEvents = (id) => {
-  return db.query('SELECT events_users.*, events.*, host_id, accepted, name FROM events_users JOIN events ON events_id = events.id JOIN users ON user_id = users.id WHERE user_id = $1 AND accepted = true;', [id])
+  return db
+    .query(
+      "SELECT events_users.*, events.*, host_id, accepted, name FROM events_users JOIN events ON events_id = events.id JOIN users ON user_id = users.id WHERE user_id = $1 AND accepted = true;",
+      [id]
+    )
     .then((response) => {
       return response.rows;
-  })
-}
+    });
+};
 
-const acceptRequest= function (id) {
+const acceptRequest = function (id) {
   const stringQuery = ` UPDATE events_users
   SET accepted = true
   WHERE id = $1;
@@ -117,5 +170,6 @@ module.exports = {
   getAllRequestsForHost,
   acceptRequest,
   declineRequest,
-  getAllUserAcceptedEvents
+  getAllUserAcceptedEvents,
+  editEvent,
 };

@@ -7,6 +7,10 @@ import "../styles/partyCard.css";
 
 export default function PartyListItem(props) {
   const history = useHistory();
+  const editEventForm = (e) => {
+    e.preventDefault();
+    history.push(`/editevent/${id}`);
+  };
 
   const eventDetail = (e) => {
     e.preventDefault();
@@ -21,33 +25,46 @@ export default function PartyListItem(props) {
     eventprivate,
     agerange,
     description,
+    host_id,
   } = props.event;
+  if (props.user === undefined) {
+    return <h1>loading</h1>;
+  } else {
+    const user_id = props.user.id;
+    return (
+      <div className="card">
+        {eventprivate && <div className="sold-out">🔒</div>}
+        {!eventprivate && <div className="sold-out">🔓</div>}
 
-  return (
-    <div onClick={eventDetail} className="card">
+        <div className="card-header">
+          <p style={{ color: "white" }}>Name: {event_name}</p>
+          <p style={{ color: "white" }}>
+            <br />
+            Price: ${price}
+          </p>
+        </div>
 
-      {eventprivate && <div className="sold-out">🔒</div>}
-      {!eventprivate && <div className="sold-out">🔓</div>}
+        <div>
+          <p style={{ color: "white" }}>Description: {description}</p>
+          <p style={{ color: "white" }}>Age range: {agerange}</p>
+        </div>
 
-      <div className="card-header">
-        <p style={{ color: "white" }}>Name: {event_name}</p>
-        <p style={{ color: "white" }}><br/>Price: ${price}</p>
+        <div className="card-footer">
+          <p style={{ color: "white" }}>Distance: 2.8km</p>
+          <p style={{ color: "white" }}>Tags: #yuuheardd</p>
+          <p style={{ color: "white" }}>Host: @{name}</p>
+        </div>
+        <button onClick={eventDetail}>detail</button>
+
+        {host_id === user_id && (
+          <button onClick={editEventForm}>Edit Event</button>
+        )}
+
+        {/* Do we still need these three lines?? by Lewis */}
+        <Switch>
+          <Route path="/events/:eventId" component={Event} />
+        </Switch>
       </div>
-
-      <div>
-        <p style={{ color: "white" }}>Description: {description}</p>
-        <p style={{ color: "white" }}>Age range: {agerange}</p>
-      </div>
-
-      <div className="card-footer">
-        <p style={{ color: "white" }}>Distance: 2.8km</p>
-        <p style={{ color: "white" }}>Tags: #yuuheardd</p>
-        <p style={{ color: "white" }}>Host: @{name}</p>
-      </div>
-
-      <Switch>
-        <Route path="/events/:eventId" component={Event} />
-      </Switch>
-    </div>
-  );
+    );
+  }
 }

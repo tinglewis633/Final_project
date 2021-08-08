@@ -11,6 +11,7 @@ import Event from "./Event";
 import Addevent from "./Addevent";
 import MyEvents from "./MyEvents";
 import Activity from "./Activity";
+import Editevent from "./Editevent";
 import ProtectedRoute from "./Protectedroute";
 
 import "../styles/main.css";
@@ -31,7 +32,7 @@ export default function Application(props) {
       axios.get("/api/events/user"),
     ]).then((data) => {
       setEvents((prev) => ({
-        ...prev,  
+        ...prev,
         events: data[0].data,
       }));
       setUser((prev) => ({
@@ -56,7 +57,7 @@ export default function Application(props) {
   return (
     <div>
       <NavBar cookie={cookie} />
-     
+
       <main>
         <BrowserRouter>
           <Switch>
@@ -64,6 +65,7 @@ export default function Application(props) {
               events={events}
               component={PartyList}
               cookie={cookie}
+              user={user}
               exact
               path="/"
             >
@@ -100,6 +102,7 @@ export default function Application(props) {
             <ProtectedRoute
               cookie={cookie}
               events={myEvents}
+              user={user}
               component={MyEvents}
               path="/myevents"
             >
@@ -112,6 +115,10 @@ export default function Application(props) {
               component={Activity}
               path="/activity"
             >
+              {/* <MyEvents cookie={cookie} events={myEvents} /> */}
+            </ProtectedRoute>
+
+            <ProtectedRoute component={Editevent} path="/editevent/:id">
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>
 

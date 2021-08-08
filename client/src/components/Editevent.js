@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 //Add event form
 export default function Addevent(props) {
-  const url = "/api/events/";
+  const params = useParams();
+  const event_id = params.id;
+  const url = `/api/events/${event_id}`;
   return (
     <form method="POST" className="add-event-form" action={url}>
       <p>Event name:</p>
@@ -52,7 +54,7 @@ export default function Addevent(props) {
       ></input>
 
       <button type="submit" className="input-btn">
-        Add Event
+        Save event changes
       </button>
     </form>
   );
