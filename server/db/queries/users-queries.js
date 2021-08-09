@@ -28,4 +28,16 @@ const createUser = function (user, password, email, date_of_birth) {
     .then((data) => findUserByUsername(user));
 };
 
-module.exports = { getUserById, findUserByUsername, createUser };
+const updateUser = function (name, email, date_of_birth, id) {
+  const stringQuery = ` UPDATE users
+  SET name = $1,
+   email = $2,
+   date_of_birth = $3
+  WHERE id = $4;
+  `;
+  return db
+    .query(stringQuery, [name, email, date_of_birth, id])
+    .then((response) => response);
+};
+
+module.exports = { getUserById, findUserByUsername, createUser, updateUser };

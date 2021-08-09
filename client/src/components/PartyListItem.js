@@ -16,6 +16,12 @@ export default function PartyListItem(props) {
     e.preventDefault();
     history.push(`/event/${id}`);
   };
+  
+
+  const deleteEvent = (e) => {
+    e.preventDefault();
+    axios.post(`/api/event/${id}`);
+  };
 
   const {
     id,
@@ -50,7 +56,6 @@ export default function PartyListItem(props) {
         </div>
 
         <div className="card-footer">
-          <p style={{ color: "white" }}>Distance: 2.8km</p>
           <p style={{ color: "white" }}>Tags: #yuuheardd</p>
           <p style={{ color: "white" }}>Host: @{name}</p>
         </div>
@@ -58,6 +63,10 @@ export default function PartyListItem(props) {
 
         {host_id === user_id && (
           <button onClick={editEventForm}>Edit Event</button>
+        )}
+
+        {host_id === user_id && (
+          <button onClick={deleteEvent}>Delete Event</button>
         )}
 
         {/* Do we still need these three lines?? by Lewis */}

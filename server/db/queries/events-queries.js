@@ -113,8 +113,11 @@ const getAllUserOwnedEvents = (id) => {
 };
 
 const addEventRequest = function (user_id, events_id, accepted) {
-  const stringQuery = ` INSERT INTO events_users (user_id, events_id, accepted) 
-VALUES($1, $2, $3);
+  const stringQuery = ` 
+
+  
+  INSERT INTO events_users (user_id, events_id, accepted) 
+  VALUES($1, $2, $3);
 
   `;
   return db
@@ -160,6 +163,15 @@ const declineRequest = function (id) {
   `;
   return db.query(stringQuery, [id]).then((response) => response);
 };
+
+const deleteEvent = function (id) {
+
+  const stringQuery = `    
+  DELETE FROM events
+  WHERE id = $1;
+  `;
+  return db.query(stringQuery, [id]).then((response) => response);
+};
 module.exports = {
   getAllEvents,
   getEventById,
@@ -172,4 +184,5 @@ module.exports = {
   declineRequest,
   getAllUserAcceptedEvents,
   editEvent,
+  deleteEvent,
 };

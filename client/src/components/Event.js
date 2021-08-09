@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -16,7 +16,18 @@ export default function Event(props) {
     axios.post(`/api/event/${event_id}/join`);
   };
 
+  const [acceptedEvents, setAcceptedEvents] = useState([]);
 
+  useEffect(() => {
+    axios.get("/api/events/user/accepted").then((data) => {
+      setAcceptedEvents((prev) => ({
+        ...prev,
+        acceptedEvents: data.data,
+      }));
+    });
+  }, []);
+
+  
 
   if (props.events.events === undefined) {
     return <h1>Loading...</h1>;

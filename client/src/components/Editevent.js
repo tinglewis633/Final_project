@@ -77,7 +77,7 @@ export default function Editevent(props) {
   };
 
   return (
-    <form method="POST" className="add-event-form" action={url}>
+    <form method="POST"  action={url}>
       <p>Event name:</p>
       <input
         name="name"

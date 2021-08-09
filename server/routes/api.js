@@ -112,6 +112,13 @@ router.get("/event/:id", (req, res) => {
   });
 });
 
+//delete event by id
+router.post("/event/:id", (req, res) => {
+  eventQuery.deleteEvent(req.params.id).then(() => {
+    res.redirect("/");
+  });
+});
+
 //gets all events for a user
 router.get("/events/user", (req, res) => {
   eventQuery.getAllUserOwnedEvents(req.session.user_id).then((response) => {
@@ -164,22 +171,19 @@ router.get("/events/user/accepted", (req, res) => {
 
 // { '{"username":"gleesakamoshood","useremail":"glee@g.com","dob":"2002-12-02T05:00:00.000Z"}': '' }
 
-router.post("/editprofile", (req, res) => {
-  
-  console.log("REQUEST: ", req.body)
-  console.log("RESPONSE: ", res.body)
+router.post("/editprofile/:id", (req, res) => {
+  const id = req.params.id
+  const name = req.body.name;
+  const email = req.body.email;
+  const date_of_birth = req.body.dob;
 
-  // const data = JSON.parse(req.body)
- 
-  //data1 = {"username":"gleesakamoshood","useremail":"glee@g.com","dob":"2002-12-02T05:00:00.000Z"}'
-  
-  
-  // const data = Object.keys(req.body)
-  // const data1 = data[0]
-  // console.log("DATA", data1)
-  // console.log("USERNAME", data1["\"username\""])
+  userQuery.updateUser(name,email,date_of_birth,id).then(() => {
+    res.redirect("/profile");
+  });
 
 });
+
+
 
 
 
