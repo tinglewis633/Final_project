@@ -53,7 +53,7 @@ export default function Application(props) {
         myEvents: data[3].data,
       }));
     });
-  }, [events]);
+  }, []);
 
   return (
     <div>
@@ -120,16 +120,15 @@ export default function Application(props) {
             </ProtectedRoute>
 
             <ProtectedRoute
-
               component={Editevent}
               events={events}
-              path="/editevent/:id">
-            </ProtectedRoute>
-        <ProtectedRoute
+              path="/editevent/:id"
+            ></ProtectedRoute>
+            <ProtectedRoute
               user={user}
               path="/editprofile"
-              component={EditProfileForm}>
-
+              component={EditProfileForm}
+            >
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>
 

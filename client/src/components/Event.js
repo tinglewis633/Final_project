@@ -27,13 +27,11 @@ export default function Event(props) {
     });
   }, []);
 
-  
-
   if (props.events.events === undefined) {
     return <h1>Loading...</h1>;
   } else {
 
-    const event = props.events.events.filter((event)=> event.id = event_id);
+    const event = props.events.events.filter((event) => event.id == event_id);
 
     const {
       event_name,
@@ -42,8 +40,7 @@ export default function Event(props) {
       price,
       name,
       eventprivate,
-    } = event[0]; 
-
+    } = event[0];
 
     return (
       <div className="card">
