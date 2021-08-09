@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 //Add event form
 export default function Editevent(props) {
@@ -14,10 +14,8 @@ export default function Editevent(props) {
     description,
     start_time,
     end_time,
-    population,
     agerange,
     price,
-    name,
     eventprivate,
   } = event[0];
 

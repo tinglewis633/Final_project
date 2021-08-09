@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useEffect,useRef,useState } from "react";
+
+import React, { useState } from "react";
 
 //Add event form
 export default function EditProfileForm(props) {

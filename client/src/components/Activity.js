@@ -9,7 +9,6 @@ export default function Activity(props) {
 
       const newData = data.data.filter((request) => request.accepted === null);
 
-      console.log("NEWDATA", newData);
      
       setRequests((prev) => ({
         ...prev,

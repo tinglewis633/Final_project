@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router";
 
 import "../styles/partyCard.css";
@@ -16,48 +16,42 @@ export default function PartyListItem(props) {
     e.preventDefault();
     history.push(`/event/${id}`);
   };
-  
 
   const deleteEvent = (e) => {
     e.preventDefault();
     axios.post(`/api/event/${id}`);
-    
   };
 
   const {
     id,
     event_name,
-    price,
     name,
     eventprivate,
-    agerange,
     description,
     host_id,
+    date,
   } = props.event;
   if (props.user === undefined) {
     return <h1>loading</h1>;
   } else {
     const user_id = props.user.id;
+    const newDate = date.slice(0, 10);
     return (
       <div className="card">
-        {eventprivate && <div className="sold-out">🔒</div>}
-        {!eventprivate && <div className="sold-out">🔓</div>}
+        {eventprivate && <div className="sold-out">Private</div>}
+        {!eventprivate && <div className="sold-out">Public</div>}
 
         <div className="card-header">
           <p style={{ color: "white" }}>Name: {event_name}</p>
-          <p style={{ color: "white" }}>
-            <br />
-            Price: ${price}
-          </p>
         </div>
-
+        <div>
+          <p style={{ color: "white" }}>Date: {newDate}</p>
+        </div>
         <div>
           <p style={{ color: "white" }}>Description: {description}</p>
-          <p style={{ color: "white" }}>Age range: {agerange}</p>
         </div>
 
         <div className="card-footer">
-          <p style={{ color: "white" }}>Tags: #yuuheardd</p>
           <p style={{ color: "white" }}>Host: @{name}</p>
         </div>
         <button onClick={eventDetail}>detail</button>

@@ -7,14 +7,12 @@ export default function PartyList(props) {
 
   useEffect(() => {
     axios.get("/api/events/user/accepted").then((data) => {
-      console.log("DATA",data)
       setAcceptedEvents((prev) => ({
      
         ...prev,
         acceptedEvents: data.data,
       }));
     });
-    console.log("acceptedEvents:", acceptedEvents);
   }, []);
 
   if (props.events.myEvents === undefined || acceptedEvents.acceptedEvents === undefined) {
@@ -24,7 +22,6 @@ export default function PartyList(props) {
       <PartyListItem key={event.id} user={props.user.user} event={event} />
     ));
 
-   console.log(parsedEvents)
       const parsedAcceptedEvents = acceptedEvents.acceptedEvents.map((event) => (
         <PartyListItem key={event.id} user={props.user.user} event={event} />
       ));

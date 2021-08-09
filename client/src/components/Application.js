@@ -20,7 +20,6 @@ import "../styles/main.css";
 export default function Application(props) {
   const [events, setEvents] = useState({});
   const [user, setUser] = useState({});
-  const [event, setEvent] = useState({});
   const [myEvents, setMyEvents] = useState({});
   const [cookie, setCookie] = useState();
 
@@ -39,10 +38,6 @@ export default function Application(props) {
       setUser((prev) => ({
         ...prev,
         user: data[2].data,
-      }));
-      setEvent((prev) => ({
-        ...prev,
-        event: data[1].data,
       }));
       setCookie((prev) => ({
         ...prev,

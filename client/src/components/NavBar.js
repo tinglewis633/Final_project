@@ -1,8 +1,5 @@
 import React from "react";
-import { Route, NavLink, HashRouter } from "react-router-dom";
 
-import Profile from "./Profile";
-import PartyList from "./PartyList";
 
 import "../styles/nav.css";
 
@@ -46,6 +43,6 @@ export default function NavBar(props) {
         </nav>
     );
   } else {
-    return <h1></h1>;
+    return <h1> </h1>;
   }
 }

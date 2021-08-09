@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 //Add event form
 export default function Addevent(props) {
   const url = "/api/events/";
@@ -60,7 +59,6 @@ export default function Addevent(props) {
         required
         name="eventPrivate"
         placeholder="Enter true or false"
-        value="true"
       ></input>
 
       <p>age range: </p>

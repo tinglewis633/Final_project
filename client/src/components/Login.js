@@ -10,7 +10,7 @@ export default function Login(props) {
     if (logged_in) {
       history.push("/");
     }
-  }, [logged_in]);
+  }, [logged_in, history]);
 
   if (logged_in === undefined || logged_in === false) {
     return (

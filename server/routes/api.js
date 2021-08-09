@@ -172,7 +172,6 @@ router.post("/requested/:id", (req, res) => {
 
 //for host declining an event from other user
 router.post("/declined/:id", (req, res) => {
-  console.log("ROUTEHIT");
   eventQuery.declineRequest(req.params.id).then((r) => r);
 });
 router.get("/events/user/accepted", (req, res) => {

@@ -1,7 +1,5 @@
 import React from "react";
 import PartyListItem from "./PartyListItem";
-import { Link, Switch, Route } from "react-router-dom";
-import Event from "./Event";
 
 export default function PartyList(props) {
   if (props.events.events === undefined) {

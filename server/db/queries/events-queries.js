@@ -105,8 +105,8 @@ const editEvent = function (
 
 //Query for all events for a user
 const getAllUserOwnedEvents = (id) => {
-  return db
-    .query("SELECT * FROM events WHERE host_id = $1", [id])
+  return db  
+    .query("SELECT events.*, name FROM events JOIN users ON host_id = users.id WHERE host_id = $1", [id])
     .then((response) => {
       return response.rows;
     });
@@ -156,7 +156,6 @@ const acceptRequest = function (id) {
 };
 
 const declineRequest = function (id) {
-  console.log("DECLINEREQUEST");
   const stringQuery = `    
   DELETE FROM events_users
   WHERE id = $1;
