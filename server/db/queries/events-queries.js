@@ -172,6 +172,8 @@ const deleteEvent = function (id) {
   `;
   return db.query(stringQuery, [id]).then((response) => response);
 };
+
+
 module.exports = {
   getAllEvents,
   getEventById,

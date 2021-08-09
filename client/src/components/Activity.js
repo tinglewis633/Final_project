@@ -6,8 +6,11 @@ export default function Activity(props) {
 
   useEffect(() => {
     axios.get("/api/requested").then((data) => {
-      const newData = data.data.filter((request) => request.accepted === false);
-      console.log("NEWDATA", data.data);
+
+      const newData = data.data.filter((request) => request.accepted === null);
+
+      console.log("NEWDATA", newData);
+     
       setRequests((prev) => ({
         ...prev,
         requests: newData,

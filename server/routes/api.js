@@ -147,7 +147,19 @@ router.get("/logged_in", (req, res) => {
 
 //Add an event request to the database
 router.post("/event/:id/request", (req, res) => {
-  eventQuery.addEventRequest(req.session.user_id, req.params.id, false);
+  eventQuery.getAllTest().then((data) => {
+    for (const element of data) {
+      if (
+        element.user_id == req.session.user_id &&
+        element.events_id == req.params.id
+      ) {
+        res.send("You can only request once!");
+        return;
+      }
+    }
+    eventQuery.addEventRequest(req.session.user_id, req.params.id, null);
+  });
+  // eventQuery.addEventRequest(req.session.user_id, req.params.id, null);
 });
 
 router.post("/event/:id/join", (req, res) => {
@@ -172,19 +184,14 @@ router.get("/events/user/accepted", (req, res) => {
 // { '{"username":"gleesakamoshood","useremail":"glee@g.com","dob":"2002-12-02T05:00:00.000Z"}': '' }
 
 router.post("/editprofile/:id", (req, res) => {
-  const id = req.params.id
+  const id = req.params.id;
   const name = req.body.name;
   const email = req.body.email;
   const date_of_birth = req.body.dob;
 
-  userQuery.updateUser(name,email,date_of_birth,id).then(() => {
+  userQuery.updateUser(name, email, date_of_birth, id).then(() => {
     res.redirect("/profile");
   });
-
 });
-
-
-
-
 
 module.exports = router;

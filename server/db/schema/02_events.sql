@@ -8,7 +8,7 @@ CREATE TABLE events (
   start_time TIMESTAMP NOT NULL,
   end_time TIMESTAMP NOT NULL,
   --price in cents
-  price int NOT NULL, 
+  price NUMERIC(10,2) NOT NULL, 
   population int NOT NULL,
   description VARCHAR(255) NOT NULL,
   eventPrivate BOOLEAN,
