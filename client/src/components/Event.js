@@ -45,7 +45,6 @@ export default function Event(props) {
         <p style={{ color: "white" }}>Desc: {description}</p>
         {eventprivate && <p style={{ color: "white" }}>Cost: ${price}</p>}
         <p style={{ color: "white" }}>Age Range: ${agerange}</p>
-        <p style={{ color: "white" }}>Date: ${date}</p>
 
         <p style={{ color: "white" }}>Start_time: {newStartTime}</p>
         <p style={{ color: "white" }}>End_time: {newEndtTime}</p>

@@ -13,9 +13,7 @@
   position: relative;
 }
 
-.card :hover {
-  cursor: pointer;
-}
+
 
 .sold-out {
   color: white;
