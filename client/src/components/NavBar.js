@@ -11,6 +11,7 @@ export default function NavBar(props) {
 
   if (logged_in) {
     return (
+      <nav>
       <div id="menuToggle">
         <input type="checkbox" />
         <span></span>
@@ -41,7 +42,8 @@ export default function NavBar(props) {
             </button>
           </form>
         </ul>
-      </div>
+        </div>
+        </nav>
     );
   } else {
     return <h1></h1>;

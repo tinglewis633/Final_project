@@ -12,6 +12,7 @@ import Addevent from "./Addevent";
 import MyEvents from "./MyEvents";
 import Activity from "./Activity";
 import Editevent from "./Editevent";
+import EditProfileForm from "./EditProfileForm";
 import ProtectedRoute from "./Protectedroute";
 
 import "../styles/main.css";
@@ -119,10 +120,16 @@ export default function Application(props) {
             </ProtectedRoute>
 
             <ProtectedRoute
+
               component={Editevent}
               events={events}
-              path="/editevent/:id"
-            >
+              path="/editevent/:id">
+            </ProtectedRoute>
+        <ProtectedRoute
+              user={user}
+              path="/editprofile"
+              component={EditProfileForm}>
+
               {/* <MyEvents cookie={cookie} events={myEvents} /> */}
             </ProtectedRoute>
 

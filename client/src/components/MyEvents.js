@@ -15,22 +15,24 @@ export default function PartyList(props) {
     console.log("acceptedEvents:", acceptedEvents);
   }, []);
 
-  if (props.events.myEvents === undefined) {
+  if (props.events.myEvents === undefined || acceptedEvents === undefined) {
     return <h1>Loading...</h1>;
   } else {
     const parsedEvents = props.events.myEvents.map((event) => (
       <PartyListItem key={event.id} user={props.user.user} event={event} />
     ));
 
-    // const parsedAcceptedEvents = acceptedEvents.map((event) => (
-    //   <PartyListItem key={event.id} event={event} />
-    // ));
+   
+      const parsedAcceptedEvents = acceptedEvents.acceptedEvents.map((event) => (
+        <PartyListItem key={event.id} event={event} />
+      ));
+    
 
-    return (
-      <section>
-        My Events: {parsedEvents}
-        Accepted Events:
-      </section>
-    );
+    
+
+    return <section>
+      My Events: {parsedEvents}
+      Accepted Events: {parsedAcceptedEvents}
+    </section>;
   }
 }
