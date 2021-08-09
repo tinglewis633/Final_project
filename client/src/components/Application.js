@@ -53,7 +53,7 @@ export default function Application(props) {
         myEvents: data[3].data,
       }));
     });
-  }, []);
+  }, [events]);
 
   return (
     <div>

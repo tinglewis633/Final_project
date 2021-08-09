@@ -21,6 +21,7 @@ export default function PartyListItem(props) {
   const deleteEvent = (e) => {
     e.preventDefault();
     axios.post(`/api/event/${id}`);
+    
   };
 
   const {

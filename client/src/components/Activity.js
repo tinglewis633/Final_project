@@ -7,9 +7,12 @@ const [requests, setRequests]= useState({});
 
 useEffect(()=> {
   axios.get("/api/requested").then((data)=>{
+    const newData = data.data.filter((request)=> request.accepted = false);
+    // data.data.filter((request)=> )
     setRequests((prev) => ({
+      
       ...prev,  
-      requests: data.data,
+      requests:newData,
     }));
   })
 
@@ -22,7 +25,8 @@ useEffect(()=> {
       <RequestListItem key={request.id} request={request} />
     ));
    
-    return <section>{parsedRequests}</section>;
+    return <section>{parsedRequests} {parsedRequests.length === 0 && <h3>You have no new requests!</h3>}
+    </section>;
   }
   
 }

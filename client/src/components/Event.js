@@ -32,6 +32,9 @@ export default function Event(props) {
   if (props.events.events === undefined) {
     return <h1>Loading...</h1>;
   } else {
+
+    const event = props.events.events.filter((event)=> event.id = event_id);
+
     const {
       event_name,
       description,
@@ -39,7 +42,8 @@ export default function Event(props) {
       price,
       name,
       eventprivate,
-    } = props.events.events[event_id - 1];
+    } = event[0]; 
+
 
     return (
       <div className="card">

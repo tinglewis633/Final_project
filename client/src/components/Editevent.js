@@ -6,7 +6,7 @@ export default function Editevent(props) {
   const params = useParams();
   const event_id = params.id;
   const url = `/api/events/${event_id}`;
-
+  const event = props.events.events.filter((event)=> event.id = event_id);
   const {
     event_name,
     date,
@@ -19,7 +19,7 @@ export default function Editevent(props) {
     price,
     name,
     eventprivate,
-  } = props.events.events[event_id - 1];
+  } = event[0];
 
   // cut the variables to correct form
   const newDate = date.slice(0, 10);
