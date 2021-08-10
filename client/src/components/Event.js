@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
-
+import "../styles/event.css";
 export default function Event(props) {
   const params = useParams();
   const event_id = params.eventId;
@@ -16,8 +16,8 @@ export default function Event(props) {
   const joinEvent = (e) => {
     e.preventDefault();
     axios.post(`/api/event/${event_id}/join`).then(() => {
-      history.push('/myevents');
-    })
+      history.push("/myevents");
+    });
   };
 
   if (props.events.events === undefined) {
@@ -56,9 +56,17 @@ export default function Event(props) {
         {!eventprivate && <p style={{ color: "white" }}>Address: {address}</p>}
 
         <p style={{ color: "white" }}>Hosted By: {name}</p>
-
-        {eventprivate && <button onClick={requestEvent}>Request</button>}
-        {!eventprivate && <button onClick={joinEvent}>Join</button>}
+        <br></br>
+        {eventprivate && (
+          <button className="request-btn" onClick={requestEvent}>
+            Request
+          </button>
+        )}
+        {!eventprivate && (
+          <button className="request-btn" onClick={joinEvent}>
+            Join
+          </button>
+        )}
       </div>
     );
   }

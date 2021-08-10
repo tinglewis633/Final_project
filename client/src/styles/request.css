@@ -1,0 +1,10 @@
+.request {
+  color: white;
+  font-family: "Kanit", sans-serif;
+  margin-left: 1em;
+}
+
+#request-head {
+  border-bottom: 1px solid white;
+  width: 27%;
+}
