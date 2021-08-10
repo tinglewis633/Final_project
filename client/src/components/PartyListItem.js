@@ -37,44 +37,57 @@ export default function PartyListItem(props) {
     const user_id = props.user.id;
     const newDate = date.slice(0, 10);
     return (
-      <div className="card">
+      <div className="wholecard">
+        <div className="card" onClick={eventDetail}>
+          {eventprivate && (
+            <div className="sold-out">
+              <strong>Private</strong>
+            </div>
+          )}
+          {!eventprivate && (
+            <div className="sold-out">
+              <strong>Public</strong>
+            </div>
+          )}
 
-      <div onClick={eventDetail}>
-        {eventprivate && <div className="sold-out"><strong>Private</strong></div>}
-        {!eventprivate && <div className="sold-out"><strong>Public</strong></div>}
+          <div className="card-header">
+            <p>Name: {event_name}</p>
+          </div>
+          <div>
+            <p>Date: {newDate}</p>
+          </div>
+          <div>
+            <p>Description: {description}</p>
+          </div>
 
-        <div className="card-header">
-          <p style={{ color: "white" }}>Name: {event_name}</p>
+          <div className="card-footer">
+            <p>Host: @{name}</p>
+          </div>
+
+          {/* Do we still need these three lines?? by Lewis */}
+          <Switch>
+            <Route path="/events/:eventId" component={Event} />
+          </Switch>
         </div>
-        <div>
-          <p style={{ color: "white" }}>Date: {newDate}</p>
+
+        <div className="btns">
+          {host_id === user_id && (
+            <button onClick={deleteEvent}>
+              <i class="far fa-trash-alt"></i>
+            </button>
+          )}
+          <br></br>
+          {host_id === user_id && (
+            <button onClick={editEventForm}>
+              <i class="far fa-edit"></i>
+            </button>
+          )}
+          <button>HI</button>
+          <br></br>
+          <button onClick={eventDetail}>
+            <i class="fas fa-info"></i>
+          </button>
         </div>
-        <div>
-          <p style={{ color: "white" }}>Description: {description}</p>
-        </div>
-
-        <div className="card-footer">
-          <p style={{ color: "white" }}>Host: @{name}</p>
-        </div>
-      
-        {/* Do we still need these three lines?? by Lewis */}
-        <Switch>
-          <Route path="/events/:eventId" component={Event} />
-        </Switch>
-      </div>
-
-      <div className = "btns">
-      <button onClick={eventDetail}><i class="fas fa-info"></i></button>
-      
-        {host_id === user_id && (
-          <button onClick={editEventForm}><i class="far fa-edit"></i></button>
-        )}
-
-        {host_id === user_id && (
-          <button onClick={deleteEvent}><i class="far fa-trash-alt"></i></button>
-        )}
-       </div>
-
       </div>
     );
   }

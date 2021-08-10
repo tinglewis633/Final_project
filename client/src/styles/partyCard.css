@@ -1,13 +1,13 @@
 .card {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
   height: auto;
-  width: 390px;
+  width: 340px;
   margin: 10px;
   margin-bottom: 5px;
   padding: 10px;
-  background-color: black;
+  background-color: #81a4cd;
   border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
@@ -16,10 +16,8 @@
 }
 
 .card :hover {
-  background-color: orange;
   cursor: pointer;
 }
-
 
 .sold-out {
   color: white;
@@ -59,5 +57,24 @@
 .btns {
   z-index: 1;
   display: flex;
-flex-direction: column;
+  flex-direction: column-reverse;
+}
+
+p {
+  color: #054a91;
+}
+
+.wholecard {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  border-radius: 20%;
+  background-color: #dbe4ee;
+  outline: none;
+}
+a:hover {
+  cursor: pointer;
+  background-color: transparent;
 }
