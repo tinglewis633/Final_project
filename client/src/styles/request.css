@@ -2,9 +2,50 @@
   color: white;
   font-family: "Kanit", sans-serif;
   margin-left: 1em;
+  display: flex;
+  border: 1px solid #FFFFFF;
+  padding: 10px;
+  border-radius: 20px;
+
 }
 
 #request-head {
   border-bottom: 1px solid white;
-  width: 27%;
+  width: 38%;
+  margin: 0px;;
+}
+
+.options{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.fa-check-square{
+  color: #79C99E;
+}
+.fa-times{
+  color: red;
+}
+
+#accept-btn{
+  
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #79C99E;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#decline-btn{
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #fa3c3c;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }

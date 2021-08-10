@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "../styles/request.css";
+import "../styles/request.css"
 
 export default function RequestListItem(props) {
   const acceptRequest = (e) => {
@@ -19,16 +19,21 @@ export default function RequestListItem(props) {
     <div>
       {!accepted && (
         <div className="request">
-          <br />
-          <br />
-          <span>
+          <div>
             <h3 id="request-head">New Request </h3>
-            User:{name} requested to come to {event_name} event!
-          </span>
+            {name} requested to come to {event_name}!
+            <br/>
+            <div className="options">
+            <a onClick={acceptRequest}><i class="fas fa-check-square fa-2x"></i></a>
+
+            <a onClick={declineRequest}><i class="fas fa-times fa-2x"></i></a>
+            </div>
+          </div>
           <br />
-          <br></br>
-          <button onClick={acceptRequest}>Accept</button>
-          <button onClick={declineRequest}>Decline</button>
+          {/* <button id="accept-btn" onClick={acceptRequest}>Accept</button> */}
+         
+
+          {/* <button id="decline-btn" onClick={declineRequest}>Decline</button> */}
         </div>
       )}
     </div>
