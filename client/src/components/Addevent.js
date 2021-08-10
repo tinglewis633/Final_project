@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/eventform.css";
 //Add event form
 export default function Addevent(props) {
   const url = "/api/events/";
@@ -46,7 +47,7 @@ export default function Addevent(props) {
       <p>Price</p>
       <input required name="price" placeholder="Enter price"></input>
 
-      <p>description: </p>
+      <p>Description: </p>
       <input
         required
         name="description"
@@ -54,22 +55,22 @@ export default function Addevent(props) {
         value="very fun"
       ></input>
 
-      <p>is it private?</p>
+      <p>Is it private?</p>
       <input
         required
         name="eventPrivate"
         placeholder="Enter true or false"
       ></input>
 
-      <p>age range: </p>
+      <p>Age Range: </p>
       <input
         required
         name="agerange"
         placeholder="enter the age range"
         value="19-25"
       ></input>
-
-      <button type="submit" className="input-btn">
+      <br></br>
+      <button type="submit" className="add-event">
         Add Event
       </button>
     </form>

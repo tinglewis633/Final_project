@@ -69,12 +69,13 @@ p {
   flex-direction: row;
 }
 
-a {
+button {
   border-radius: 20%;
   background-color: #dbe4ee;
   outline: none;
+  color: white;
 }
-a:hover {
+button:hover {
   cursor: pointer;
   background-color: transparent;
 }

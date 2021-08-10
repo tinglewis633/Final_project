@@ -6,7 +6,7 @@ export default function Editevent(props) {
   const params = useParams();
   const event_id = params.id;
   const url = `/api/events/${event_id}`;
-  const event = props.events.events.filter((event)=> event.id == event_id);
+  const event = props.events.events.filter((event) => event.id == event_id);
   const {
     event_name,
     date,
@@ -75,7 +75,7 @@ export default function Editevent(props) {
   };
 
   return (
-    <form method="POST"  action={url}>
+    <form method="POST" action={url}>
       <p>Event name:</p>
       <input
         name="name"
@@ -129,7 +129,7 @@ export default function Editevent(props) {
         value={priceInput}
       ></input>
 
-      <p>description: </p>
+      <p>Description: </p>
       <input
         required
         name="description"
@@ -138,7 +138,7 @@ export default function Editevent(props) {
         value={descriptionInput}
       ></input>
 
-      <p>is it private?</p>
+      <p>Is it private?</p>
       <input
         required
         name="eventPrivate"
@@ -147,7 +147,7 @@ export default function Editevent(props) {
         value={privateInput}
       ></input>
 
-      <p>age range: </p>
+      <p>Age Range: </p>
       <input
         required
         name="agerange"
@@ -156,8 +156,9 @@ export default function Editevent(props) {
         value={ageRangeInput}
       ></input>
 
-      <button type="submit" className="input-btn">
-        Save event changes
+      <br></br>
+      <button type="submit" className="add-event">
+        Save changes
       </button>
     </form>
   );

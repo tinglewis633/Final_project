@@ -82,7 +82,6 @@ export default function PartyListItem(props) {
               <i class="far fa-edit"></i>
             </button>
           )}
-          <button>HI</button>
           <br></br>
           <button onClick={eventDetail}>
             <i class="fas fa-info"></i>
