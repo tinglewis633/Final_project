@@ -53,7 +53,6 @@ export default function Application(props) {
   return (
     <div>
       <NavBar cookie={cookie} />
-
       <main>
         <BrowserRouter>
           <Switch>

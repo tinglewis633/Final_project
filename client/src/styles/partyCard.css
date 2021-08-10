@@ -7,12 +7,12 @@
   margin: 10px;
   margin-bottom: 5px;
   padding: 10px;
-  background-color: transparent;
-  border-radius: 10px;
+  background-color: #81A4CD;
+  border-radius: 15px;
   transition: 0.4s ease-out;
   position: relative;
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  border: 1px solid #FFFFFF;
+  font-family: 'Righteous', cursive;
+   border: 1px solid #FFFFFF;
   box-shadow: -1px 4px 22px 7px rgba(255,255,255,0.36);
 
 }
@@ -61,6 +61,7 @@
   flex-direction: column-reverse;
   align-content: center;
   justify-content: center;
+  color: #FFFFFF;
 }
 
 p {
@@ -73,13 +74,13 @@ p {
 }
 
 button {
-  border-radius: 20%;
+  /* border-radius: 20%; */
   /* background-color: #dbe4ee; */
   /* outline: none; */
-  color: white;
+  /* color: white; */
 
 }
 button:hover {
-  cursor: pointer;
-  background-color: transparent;
+  /* cursor: pointer; */
+  /* background-color: transparent; */
 }
