@@ -7,14 +7,15 @@
   margin: 10px;
   margin-bottom: 5px;
   padding: 10px;
-  background-color: #81a4cd;
+  background-color: transparent;
   border-radius: 10px;
   transition: 0.4s ease-out;
   position: relative;
   font-family: "Avenir Next", "Avenir", sans-serif;
-  box-shadow: 0px 0px 13px #666666;
-}
+  border: 1px solid #FFFFFF;
+  box-shadow: -1px 4px 22px 7px rgba(255,255,255,0.36);
 
+}
 .card :hover {
   cursor: pointer;
 }
@@ -58,10 +59,12 @@
   z-index: 1;
   display: flex;
   flex-direction: column-reverse;
+  align-content: center;
+  justify-content: center;
 }
 
 p {
-  color: #054a91;
+  color: whitesmoke;
 }
 
 .wholecard {
@@ -71,9 +74,10 @@ p {
 
 button {
   border-radius: 20%;
-  background-color: #dbe4ee;
-  outline: none;
+  /* background-color: #dbe4ee; */
+  /* outline: none; */
   color: white;
+
 }
 button:hover {
   cursor: pointer;

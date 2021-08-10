@@ -72,20 +72,29 @@ export default function PartyListItem(props) {
 
         <div className="btns">
           {host_id === user_id && (
-            <button onClick={deleteEvent}>
-              <i class="far fa-trash-alt"></i>
-            </button>
+            // <button onClick={deleteEvent}>
+            //   <i class="far fa-trash-alt"></i>
+            // </button>
+
+          <a onClick={deleteEvent} ><i class="far fa-trash-alt fa-lg"></i></a>
+
           )}
-          <br></br>
+          <br/>
           {host_id === user_id && (
-            <button onClick={editEventForm}>
-              <i class="far fa-edit"></i>
-            </button>
+
+            // <button onClick={editEventForm}>
+            //   <i class="far fa-edit"></i>
+            // </button>
+            <a onClick={editEventForm}><i class="far fa-edit fa-lg"></i></a>
+
           )}
-          <br></br>
-          <button onClick={eventDetail}>
+          {/* <button onClick={eventDetail}>
             <i class="fas fa-info"></i>
-          </button>
+          </button> */}
+
+
+          {/* <a><i class="fas fa-sign-in-alt fa-lg"></i></a> */}
+
         </div>
       </div>
     );
