@@ -56,14 +56,12 @@ export default function PartyListItem(props) {
           {/* <div className="date">
             <p><i class="far fa-calendar-alt fa-lg"></i> {newDate}</p>
           </div> */}
-          <div>
-            <br/>
+          <div className="description">
             <p>{description}</p>
-            <br/>
           </div>
 
           <div className="card-footer">
-          <p><i class="far fa-calendar-alt fa-lg"></i> {newDate}</p>
+          <p><i class="far fa-calendar-alt fa-lg"></i> : {newDate}</p>
             <p>Host: @{name}</p>
           </div>
 
