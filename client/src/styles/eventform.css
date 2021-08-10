@@ -8,7 +8,7 @@ input {
   border-radius: 5000px;
 
   box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
-  color: #81a4cd;
+  color: rgba(255, 255, 255, 0.733);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
@@ -20,19 +20,13 @@ input:focus {
 }
 
 input::placeholder {
-  color: #81a4cd;
+  color: rgba(255, 255, 255, 0.322);
 }
 
 .add-event {
   color: #dbe4ee;
-  background-color: #054a91;
+  background-color: #3e7cb1;
   border-radius: 10%;
   width: 50%;
   margin-left: 20%;
-}
-
-p {
-  width: fit-content;
-  border-radius: 10%;
-  background-color: #dbe4ee;
 }

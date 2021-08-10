@@ -37,7 +37,7 @@ export default function NavBar(props) {
           </form>
         </ul>
         </div>
-        <h2>PARTYER</h2>
+        <h2 className="partyer">PARTYER</h2>
         <a href="/add-event"><i class="far fa-plus-square"></i></a>
         </nav>
     );

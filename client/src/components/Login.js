@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "../styles/login.css";
 
 export default function Login(props) {
   const logged_in = props.cookie?.cookie;
@@ -16,61 +17,62 @@ export default function Login(props) {
     return (
       <div>
         <form method="POST" className="login-form" action="/login">
-          <p>Username:</p>
+          <p className="login">Username:</p>
           <input
-            className="username"
+            className="login-input"
             name="username"
             required
             placeholder="Enter username"
           ></input>
-          <p>Password:</p>
+          <p className="login">Password:</p>
           <input
             type="password"
-            className="password"
+            className="login-input"
             required
             name="password"
             placeholder="Enter password"
           ></input>
-
-          <button type="submit" className="input-btn">
+          <br></br>
+          <button type="submit" className="login-btn">
             Login
           </button>
         </form>
 
-        <h2>Don't have an account?, register below</h2>
+        <h3 className="login-below">Don't have an account?, register below</h3>
 
         <form method="POST" className="register-form" action="/register">
-          <p>Email:</p>
+          <p className="login">Email:</p>
           <input
             type="email"
-            className="email"
+            className="login-input"
             name="email"
             required
             placeholder="Enter email"
           ></input>
-          <p>Username:</p>
+          <p className="login">Username:</p>
           <input
-            className="username"
+            className="login-input"
             name="username"
             required
             placeholder="Enter username"
           ></input>
-          <p>Password:</p>
+          <p className="login">Password:</p>
           <input
             type="password"
-            className="password"
+            className="login-input"
             required
             name="password"
             placeholder="Enter password"
           ></input>
-          <p>Date of Birth:</p>
+          <p className="login">Date of Birth:</p>
           <input
-            className="date_of_birth"
+            className="login-input"
             name="date_of_birth"
             required
             placeholder="YYYY-MM-DD"
           ></input>
-          <button type="submit" className="input-btn">
+          <br></br>
+          <button type="submit" className="login-btn">
             Register
           </button>
         </form>
