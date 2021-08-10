@@ -31,13 +31,17 @@ export default function PartyList(props) {
     ));
 
     return (
-      <section className="myevents-text">
-        My Events: {parsedEvents}{" "}
+      <section>
+        <div className="myevents-text">My Events</div>
+        <br></br>
+        {parsedEvents}{" "}
         {parsedEvents.length === 0 && <h3>You have not created any events!</h3>}{" "}
         <a href="/add-event"></a>
-        Accepted Events: {parsedAcceptedEvents}{" "}
+        <div className="myevents-text">Accepted Events</div>
+        <br></br>
+        {parsedAcceptedEvents}{" "}
         {parsedAcceptedEvents.length === 0 && (
-          <h3>You have not been accepted to any event!</h3>
+          <h3 id="myevents-text">You have not been accepted to any event!</h3>
         )}
       </section>
     );

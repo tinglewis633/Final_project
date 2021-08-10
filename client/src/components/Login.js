@@ -16,6 +16,7 @@ export default function Login(props) {
   if (logged_in === undefined || logged_in === false) {
     return (
       <div>
+        <h2 id="login-head">PARTYER</h2>
         <form method="POST" className="login-form" action="/login">
           <p className="login">Username:</p>
           <input
