@@ -18,6 +18,17 @@
   font-size: large;
 }
 
+.login-register-btn {
+  color: #dbe4ee;
+  background-color: #3e7cb1;
+  border-radius: 10%;
+  width: 40%;
+  border-left: black;
+  border-top: black;
+  height: 1.5em;
+  font-size: large;
+}
+
 #login-head {
   color: white;
   font-family: "Kanit", sans-serif;
