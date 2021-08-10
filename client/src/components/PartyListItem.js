@@ -51,16 +51,19 @@ export default function PartyListItem(props) {
           )}
 
           <div className="card-header">
-            <p>Name: {event_name}</p>
+            <p id="event_name">{event_name}</p>
           </div>
+          {/* <div className="date">
+            <p><i class="far fa-calendar-alt fa-lg"></i> {newDate}</p>
+          </div> */}
           <div>
-            <p>Date: {newDate}</p>
-          </div>
-          <div>
-            <p>Description: {description}</p>
+            <br/>
+            <p>{description}</p>
+            <br/>
           </div>
 
           <div className="card-footer">
+          <p><i class="far fa-calendar-alt fa-lg"></i> {newDate}</p>
             <p>Host: @{name}</p>
           </div>
 

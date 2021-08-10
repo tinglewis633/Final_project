@@ -10,7 +10,7 @@ export default function Addevent(props) {
         name="name"
         required
         placeholder="Enter event name"
-        value="HIHIHI"
+        value="Alex 16th Birthday"
       ></input>
       <p>Date of the event:</p>
       <input
