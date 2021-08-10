@@ -1,4 +1,10 @@
 main {
   display: flex;
   justify-content: space-around;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+body{
+  font-family: "Avenir Next", "Avenir", sans-serif;
+
 }

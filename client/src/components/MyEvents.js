@@ -31,7 +31,7 @@ export default function PartyList(props) {
 
     return <section>
 
-      My Events: {parsedEvents} {parsedEvents.length === 0 && <h3>You have not created any events!</h3>}
+      My Events: {parsedEvents} {parsedEvents.length === 0 && <h3>You have not created any events!</h3>} <a href="/add-event">+ (add event)</a>
 
       Accepted Events: {parsedAcceptedEvents} {parsedAcceptedEvents.length === 0 && <h3>You have not been accepted to any event!</h3>}
 

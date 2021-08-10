@@ -38,8 +38,10 @@ export default function PartyListItem(props) {
     const newDate = date.slice(0, 10);
     return (
       <div className="card">
-        {eventprivate && <div className="sold-out">Private</div>}
-        {!eventprivate && <div className="sold-out">Public</div>}
+
+      <div onClick={eventDetail}>
+        {eventprivate && <div className="sold-out"><strong>Private</strong></div>}
+        {!eventprivate && <div className="sold-out"><strong>Public</strong></div>}
 
         <div className="card-header">
           <p style={{ color: "white" }}>Name: {event_name}</p>
@@ -54,20 +56,25 @@ export default function PartyListItem(props) {
         <div className="card-footer">
           <p style={{ color: "white" }}>Host: @{name}</p>
         </div>
-        <button onClick={eventDetail}>detail</button>
-
-        {host_id === user_id && (
-          <button onClick={editEventForm}>Edit Event</button>
-        )}
-
-        {host_id === user_id && (
-          <button onClick={deleteEvent}>Delete Event</button>
-        )}
-
+      
         {/* Do we still need these three lines?? by Lewis */}
         <Switch>
           <Route path="/events/:eventId" component={Event} />
         </Switch>
+      </div>
+
+      <div className = "btns">
+      <button onClick={eventDetail}><i class="fas fa-info"></i></button>
+      
+        {host_id === user_id && (
+          <button onClick={editEventForm}><i class="far fa-edit"></i></button>
+        )}
+
+        {host_id === user_id && (
+          <button onClick={deleteEvent}><i class="far fa-trash-alt"></i></button>
+        )}
+       </div>
+
       </div>
     );
   }

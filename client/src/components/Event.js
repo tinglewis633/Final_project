@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 export default function Event(props) {
   const params = useParams();
   const event_id = params.eventId;
+
+  const history = useHistory();
 
   const requestEvent = (e) => {
     e.preventDefault();
@@ -13,7 +15,9 @@ export default function Event(props) {
 
   const joinEvent = (e) => {
     e.preventDefault();
-    axios.post(`/api/event/${event_id}/join`);
+    axios.post(`/api/event/${event_id}/join`).then(() => {
+      history.push('/myevents');
+    })
   };
 
   if (props.events.events === undefined) {

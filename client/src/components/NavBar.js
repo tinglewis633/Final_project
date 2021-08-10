@@ -8,7 +8,7 @@ export default function NavBar(props) {
 
   if (logged_in) {
     return (
-      <nav>
+      <nav className="mainNav">
       <div id="menuToggle">
         <input type="checkbox" />
         <span></span>
@@ -30,16 +30,14 @@ export default function NavBar(props) {
           >
             <li>Profile</li>
           </a>
-          <a href="/add-event">
-            <li>+ (add event)</li>
-          </a>
           <form method="POST" className="logout-form" action="/logout">
-            <button type="submit" className="input-btn">
+            <button type="submit" className="myButton">
               Logout
             </button>
           </form>
         </ul>
         </div>
+        <a href="/add-event"><i class="far fa-plus-square"></i></a>
         </nav>
     );
   } else {

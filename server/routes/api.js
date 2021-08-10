@@ -154,7 +154,7 @@ router.post("/event/:id/request", (req, res) => {
         element.events_id == req.params.id
       ) {
         res.send("You can only request once!");
-        return;
+        return null;
       }
     }
     eventQuery.addEventRequest(req.session.user_id, req.params.id, null);
