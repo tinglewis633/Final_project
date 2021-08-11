@@ -48,11 +48,11 @@ export default function Application(props) {
         myEvents: data[3].data,
       }));
     });
-  }, []);
+  }, [events]);
 
   return (
     <div>
-      <NavBar cookie={cookie} />
+      <NavBar cookie={cookie} user={user} />
       <main>
         <BrowserRouter>
           <Switch>
