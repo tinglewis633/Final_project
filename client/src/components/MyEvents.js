@@ -36,7 +36,9 @@ export default function PartyList(props) {
         <br></br>
         {parsedEvents}{" "}
         {parsedEvents.length === 0 && (
-          <h2 className="myevents-text">You have not created any events!</h2>
+          <h2 className="myevents-text" id="myevents-h2">
+            You have not created any events!
+          </h2>
         )}{" "}
         <a href="/add-event"></a>
         <div className="myevents-text">Accepted Events</div>

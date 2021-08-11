@@ -61,7 +61,9 @@ export default function PartyListItem(props) {
           </div>
 
           <div className="card-footer">
-          <p><i class="far fa-calendar-alt fa-lg"></i> : {newDate}</p>
+            <p>
+              <i class="far fa-calendar-alt fa-lg"></i> : {newDate}
+            </p>
             <p>Host: @{name}</p>
           </div>
 
@@ -77,25 +79,24 @@ export default function PartyListItem(props) {
             //   <i class="far fa-trash-alt"></i>
             // </button>
 
-          <a onClick={deleteEvent} ><i class="far fa-trash-alt fa-lg"></i></a>
-
+            <a onClick={deleteEvent}>
+              <i class="far fa-trash-alt fa-lg"></i>
+            </a>
           )}
-          <br/>
+          <br />
           {host_id === user_id && (
-
             // <button onClick={editEventForm}>
             //   <i class="far fa-edit"></i>
             // </button>
-            <a onClick={editEventForm}><i class="far fa-edit fa-lg"></i></a>
-
+            <a onClick={editEventForm}>
+              <i class="far fa-edit fa-lg"></i>
+            </a>
           )}
           {/* <button onClick={eventDetail}>
             <i class="fas fa-info"></i>
           </button> */}
 
-
           {/* <a><i class="fas fa-sign-in-alt fa-lg"></i></a> */}
-
         </div>
       </div>
     );

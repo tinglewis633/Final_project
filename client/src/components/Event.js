@@ -53,7 +53,7 @@ export default function Event(props) {
         <p style={{ color: "white" }}>Start_time: {newStartTime}</p>
         <p style={{ color: "white" }}>End_time: {newEndtTime}</p>
 
-        {!eventprivate && <p style={{ color: "white" }}>Address: {address}</p>}
+        <p style={{ color: "white" }}>Address: {address}</p>
 
         <p style={{ color: "white" }}>Hosted By: {name}</p>
         <br></br>

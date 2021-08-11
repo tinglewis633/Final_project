@@ -39,7 +39,7 @@ export default function Login(props) {
           </button>
         </form>
 
-        <h3 className="login-below">Login Or Rgister Below</h3>
+        <h3 className="login-below">New? Register Below</h3>
 
         <form method="POST" className="register-form" action="/register">
           <p className="login">Email:</p>
