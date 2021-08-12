@@ -36,6 +36,8 @@ export default function PartyListItem(props) {
   } else {
     const user_id = props.user.id;
     const newDate = date.slice(0, 10);
+    const parsedDate = new Date(newDate);
+
     return (
       <div className="wholecard">
         <div className="card" onClick={eventDetail}>
@@ -62,7 +64,7 @@ export default function PartyListItem(props) {
 
           <div className="card-footer">
             <p>
-              <i class="far fa-calendar-alt fa-lg"></i> : {newDate}
+              <i className="far fa-calendar-alt fa-lg"></i> : {parsedDate.toDateString()}
             </p>
             <p>Host: @{name}</p>
           </div>
@@ -80,7 +82,7 @@ export default function PartyListItem(props) {
             // </button>
 
             <a onClick={deleteEvent}>
-              <i class="far fa-trash-alt fa-lg"></i>
+              <i className="far fa-trash-alt fa-lg"></i>
             </a>
           )}
           <br />

@@ -35,7 +35,7 @@ export default function EditProfileForm(props) {
         onChange={onChangeName}
         value={userName}
       ></input>
-      <p>Email</p>
+      <p>Email:</p>
       <input
         required
         name="email"
@@ -44,7 +44,7 @@ export default function EditProfileForm(props) {
         value={userEmail}
       ></input>
 
-      <p>date of birth</p>
+      <p>Date of Birth:</p>
       <input
         name="dob"
         required

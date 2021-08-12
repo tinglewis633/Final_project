@@ -20,7 +20,7 @@ export default function PartyList(props) {
     props.events.myEvents === undefined ||
     acceptedEvents.acceptedEvents === undefined
   ) {
-    return <h1>Loading1...</h1>;
+    return <h1>Loading...</h1>;
   } else {
     const parsedEvents = props.events.myEvents.map((event) => (
       <PartyListItem key={event.id} user={props.user.user} event={event} />
@@ -33,19 +33,19 @@ export default function PartyList(props) {
     return (
       <section>
         <div className="myevents-text">My Events</div>
-        <br></br>
         {parsedEvents}{" "}
         {parsedEvents.length === 0 && (
-          <h2 className="myevents-text" id="myevents-h2">
-            You have not created any events!
+          <h2 className="noevent-text">
+            You have not created any events !
           </h2>
         )}{" "}
         <a href="/add-event"></a>
+        <br />
+        <br />
         <div className="myevents-text">Accepted Events</div>
-        <br></br>
         {parsedAcceptedEvents}{" "}
         {parsedAcceptedEvents.length === 0 && (
-          <h3 id="myevents-text">You have not been accepted to any event!</h3>
+          <h2 className="noevent-text" id="myevents-text">You have not been accepted to any event !</h2>
         )}
       </section>
     );

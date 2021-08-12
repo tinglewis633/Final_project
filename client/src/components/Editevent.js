@@ -88,6 +88,7 @@ export default function Editevent(props) {
       <input
         required
         name="date"
+        type="date"
         placeholder="YYYY-MM-DD"
         onChange={onChangeDate}
         value={dateInput}
@@ -138,14 +139,18 @@ export default function Editevent(props) {
         value={descriptionInput}
       ></input>
 
-      <p>Is it private?</p>
+      {/* <p>Is it private?</p>
       <input
         required
         name="eventPrivate"
         placeholder="Enter true or false"
         onChange={onChangePrivate}
         value={privateInput}
-      ></input>
+      ></input> */}
+
+      
+<p>Is it private?</p>
+		<input id="checkme" className="check-box" name="eventPrivate" type='checkbox' />
 
       <p>Age Range: </p>
       <input

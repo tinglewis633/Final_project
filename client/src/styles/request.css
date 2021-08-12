@@ -11,7 +11,7 @@
 
 #request-head {
   border-bottom: 1px solid white;
-  width: 38%;
+  width: fit-content;
   margin: 0px;;
 }
 

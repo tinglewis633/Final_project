@@ -1,5 +1,5 @@
 INSERT INTO events (event_name, date, address, start_time, end_time, price, population, description, eventPrivate, ageRange, host_id) 
-VALUES ('testparty', '1999-02-02', '123 Test Road, Toronto, Canada', '1999-02-02 16:30:00', '1999-02-02 22:00:00', 2000, 15, 'come drink and have fun', true, '19+', 1);
+VALUES ('Test Party', '1999-02-02', '123 Test Road, Toronto, Canada', '1999-02-02 16:30:00', '1999-02-02 22:00:00', 2000, 15, 'Come drink and have fun', true, '19+', 1);
 
 -- INSERT INTO events (event_name, date, address, start_time, end_time, price, population, description, eventPrivate, ageRange, host_id) 
 -- VALUES ('party2', '1999-02-02', '123 Test Road, Toronto, Canada', '1999-02-02 16:30:00', '1999-02-02 22:00:00', 2000, 15, 'come drink and have fun', false, '12-18', 3);

@@ -15,7 +15,7 @@ export default function NavBar(props) {
           <span></span>
           <span></span>
           <ul id="menu">
-            <h2 className="welcome">Welcome, {props.user.user.name} </h2>
+            <h2 className="welcome">Welcome, {props.user.user.name}! </h2>
             <a href="/">
               <li>Feed</li>
             </a>
@@ -38,9 +38,11 @@ export default function NavBar(props) {
             </form>
           </ul>
         </div>
+        <a href="/">
         <h2 className="partyer">PARTYER</h2>
+        </a>
         <a href="/add-event">
-          <i class="far fa-plus-square"></i>
+          <i className="far fa-plus-square"></i>
         </a>
       </nav>
     );

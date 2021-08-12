@@ -12,8 +12,8 @@
   transition: 0.4s ease-out;
   position: relative;
   font-family: 'Righteous', cursive;
-   border: 1px solid #FFFFFF;
-  box-shadow: -1px 4px 22px 7px rgba(255,255,255,0.36);
+  border: 1px solid #FFFFFF;
+  box-shadow: -1px 4px 22px rgba(255,255,255,0.36);
 
 }
 .date{
@@ -44,6 +44,7 @@ margin-bottom: 10px;
   font-size: 0.8em;
   top: 0px;
   right: 0px;
+  
 }
 
 .card-header {
@@ -64,6 +65,7 @@ margin-bottom: 10px;
 .card-footer p {
   height: 20px;
   margin: 0px;
+  font-size: 15px;
 }
 
 .btns {
