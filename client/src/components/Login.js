@@ -70,6 +70,7 @@ export default function Login(props) {
             className="login-input"
             name="date_of_birth"
             required
+            type = "date"
             placeholder="YYYY-MM-DD"
           ></input>
           <br></br>
