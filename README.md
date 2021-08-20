@@ -1,6 +1,6 @@
 # Partyer
 
-Partyer is a mobile web app that mainly focuses on hosting parties for students, but it can also be considered as a social app for people to host events.
+A mobile web app that mainly focuses on hosting parties for students, but it can also be considered as a social app for people to host events.
 
 ## Screenshots
 
